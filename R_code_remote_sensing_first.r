@@ -4,7 +4,7 @@ setwd("C:/lab/")
 # install.packages("raster")
 library(raster)
 
-p224r63_2011<-brick("p224r63_2011_masked.grd")
+p224r63_2011<-brick("p224r63_2011_masked.grd") # questa funzione importa un intero set di dati (nel nostro caso bande) creando un RasterBrick.
 # p224r63_2011
 
 plot(p224r63_2011) #visualizzare tutte le bande con valori riflettanza
@@ -121,3 +121,14 @@ par(mfrow=c(3,1))
 plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin") 
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
+
+### DAY 5
+# Multitemporal set
+# 1988 image
+p224r63_1988<-brick("p224r63_1988_masked.grd")
+p224r63_1988
+
+plot(p224r63_1988)
+plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #mettiamo la banda B3 sul rosso, la banda B2 sul verde e B1 sul blu
+
+
