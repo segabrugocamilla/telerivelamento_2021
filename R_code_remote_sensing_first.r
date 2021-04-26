@@ -114,7 +114,7 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin") #così vedo bene la vegetazi
 plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
 
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
-plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist") #aumenta lo strech e la possibilità di quello che vediamo 
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist") # chiamate anche funzione logistica, aumenta lo strech e la possibilità di quello che vediamo 
 
 #par colori naturali, colori con infrarosso sul verde, colori con infrarosso sul verde con funzione hist dello strech
 par(mfrow=c(3,1))
@@ -125,10 +125,31 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
 ### DAY 5
 # Multitemporal set
 # 1988 image
-p224r63_1988<-brick("p224r63_1988_masked.grd")
-p224r63_1988
+p224r63_1988<-brick("p224r63_1988_masked.grd") #brick serve per importare un intero set di bande creando l'oggeto RasterBrick
+p224r63_1988 
 
 plot(p224r63_1988)
 plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #mettiamo la banda B3 sul rosso, la banda B2 sul verde e B1 sul blu
+
+plot(p224r63_1988) #vengono plottate le singole bande non in RGB
+plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #plot con colori naturali
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin") #in questo modo si vedrà in rosso la banda dell'infrarosso, tutto quello che è rosso è la componente della foresta
+
+#facciamo un plot delle immagini del 1988 e 2011 per confrontare le diverse distribuzioni della foresta:
+par(mfrow=c(1,2))
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
+
+#hist
+pdf("multitemp.pdf")
+par(mfrow=c(2,2))
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="hist") #molto visibili le variazioni dovute al rumore sull'immagine. 
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="hist") #nel 2011 è visibile una soglia netta del passaggio tra foresta pluviale e l'impatto umano con la coltivazione
+dev.off()
+
+
+
 
 
