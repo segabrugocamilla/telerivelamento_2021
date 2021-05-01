@@ -66,3 +66,4 @@ melt_amount <- melt$X2007annual_melt - melt$X1979annual_melt
 clb <- colorRampPalette(c("blue","white","red"))(100) #creiamo la colorRampPalette
 plot(melt_amount, col=clb) # viene così evedenziato dove c'è stato una grande diminuizione del ghiaccio dal 1979 al 2007
 # abbiamo visto come visualizzare un set di dati numerosi e anche le loro differenze
+
