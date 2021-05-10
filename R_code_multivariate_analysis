@@ -1,0 +1,8 @@
+# R_code_multivariate_analysis
+
+library(raster)
+library(RStoolbox)
+
+setwd("C:/lab/")
+
+# usiamo la funzione brick per il set Lendsart che ha 7 bande
