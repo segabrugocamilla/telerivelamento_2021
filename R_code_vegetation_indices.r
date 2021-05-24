@@ -85,7 +85,9 @@ copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) # per oscurare i valori dell'
 plot(copNDVI)
 
 # è necessario richiamare il pacchetto rasterVis
-levelplot(copNDVI) # 
+levelplot(copNDVI) # immagine che mostra i valori di biomassa della Terra
+
+
 
 
 
