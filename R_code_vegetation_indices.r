@@ -3,6 +3,11 @@
 library(raster) # require(raster)
 library(RStoolbox) # per il calcolo degli indici di vegetazione
 
+# install.packages("rasterdiv")
+
+# per l'indice NDVI del pianeta
+library(rasterVis)
+
 setwd("C:/lab/")
 
 defor1<-brick("defor1.jpg")
@@ -72,3 +77,20 @@ plot (vi2, col=cl)
 difndvi <- ndvi1 - ndvi2 # vediamo la differenza tra gli indici di vegetazione delle due immagini normalizzati
 cld <- colorRampPalette(c('blue','white','red'))(100)
 plot(difdvi, col=cld)
+
+# worldwilde NDVI
+plot(copNDVI)
+
+copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) # per oscurare i valori dell'acqua che non ci interessano
+plot(copNDVI)
+
+# è necessario richiamare il pacchetto rasterVis
+levelplot(copNDVI) # 
+
+
+
+
+
+
+
+
