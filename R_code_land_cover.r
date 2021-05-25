@@ -31,3 +31,5 @@ p1 <- ggRGB(defor1, r=1, g=2, b=3, stretch= "lin")
 p2 <- ggRGB(defor2, r=1, g=2, b=3, stretch= "lin")
 
 grid.arrange(p1,p2, nrow=2)
+
+
