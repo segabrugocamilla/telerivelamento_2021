@@ -56,3 +56,14 @@ sentpca # $call= funzione che abbiamo usato. $model= princomp(cor = spca, comvma
 summary(sentpca$model) # per vedere quanta variabilità iniziale spiegano le singole componenti
 # la prima PC spiega il 0.6736804 dell'informazione originale.
 
+pc1 <- sentpca$map$PC1
+pc1_5 <- focal(pc1, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
+clsd <- colorRampPalette(c('blue', 'green', 'pink', 'magenta', 'orange', 'brown', 'red', 'yellow'))(100)
+plot(pc1_5, col=clsd) # molto ben visibile la variabilità del paesaggio
+
+
+
+source("source_test_lezione.r") # abbiamo preso un pezzo di codice scaricandolo e lo abbiamo aperto direttamente con R
+# pc1 <- sentpca$map$PC1
+# pc1sd7 <- focal(pc1, w=matrix(1/49, nrow=7, ncol=7), fun=sd)
+# plot(pc1sd7)
