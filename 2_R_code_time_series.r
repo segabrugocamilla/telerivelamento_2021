@@ -4,10 +4,17 @@
 
 # install.packages ("raster")
 library(raster)
+# install.packages("rasterVis")
+library(rasterVis)
 
 setwd("C:/lab/greenland")
 
-lst_2000 <- raster("lst_2000.tif")
+# analizziamo dati sulla temperatura e sullo strato del ghiaccio della Groellandia
+
+# STACK -> funzione utilizzata per trasformare dati disponibili come colonne separate in un dataframe o lista avente una singola colonna che può essere utilizzato nello studio dei modelli di variaanza o altri modelli lineari
+# utilizziamo la funzioen raster presente nel pacchetto raster per creare un oggetto RasterLayer
+
+lst_2000 <- raster("lst_2000.tif") 
 plot(lst_2000)
 
 lst_2005 <- raster("lst_2005.tif")
@@ -16,7 +23,7 @@ plot(lst_2005)
 lst_2010 <- raster("lst_2010.tif")
 lst_2015 <- raster("lst_2015.tif")
 
-# par
+# utilizziamo la funzione par per creare un multiframe
 par(mfrow=c(2,2))
 plot(lst_2005)
 plot(lst_2000)
@@ -28,7 +35,7 @@ plot(lst_2015)
 rlist<-list.files(pattern="lst") #abbiamo fatto la lista dei files che contenevano "lst" e lo associamo all'oggetto "rlist"
 rlist
 
-#Apply a function over a list-like or vector-like object
+#lapply a function over a list-like or vector-like object
 #lapply(X, FUN, ...)
 import <- lapply(rlist,raster) #abbiamo applicato la funzione "raster" alla lista "rlist" precedentemente creata e l'abbiamo associato all'oggetto "import"
 import
@@ -37,13 +44,13 @@ TGr <- stack(import) #la funzione stack crea un unico file grande che comprende 
 plot(TGr)
 
 #creiamo un file composto dalle temperature nei vari anni su un'unica immagine
-plotRGB(TGr, 1, 2, 3, stretch="Lin") # dall'abbondanza di blu si nota che ci sono valori più alti del 2010)
+plotRGB(TGr, 1, 2, 3, stretch="Lin") # dall'abbondanza di blu si nota che ci sono valori più alti del 2010
 plotRGB(TGr, 2, 3, 4, stretch="Lin")
 
 library(rasterVis) #che abbiamo installato per supportare la funzione "levelplot"
 
-levevlplot(TGr) #abbiamo le 4 immagini satellitari
-levelplot(TGr$lst_2000) #il grafico sopra mostra l'andatura media della temperatura per colonna, lo stesso a destra per righe
+levevlplot(TGr) # mostra le 4 immagini satellitari
+levelplot(TGr$lst_2000) # il grafico, smostra l'andatura media della temperatura per colonna, lo stesso a destra per riga
 
 cl <- colorRampPalette(c("pink","purple","orange","light blue"))(100) #cambiamo la colorRampPalette, possiamo farlo perchè plottiamo delle immagini singole e non un'immagine satellitare in RGB
 levelplot(TGr, col.regions=cl)
@@ -54,7 +61,7 @@ levelplot(TGr,col.regions=cl,names.attr=c("July 2000","July 2005","July 2010","J
 # usiamo i dati Melt
 
 meltlist<-list.files(pattern="melt") # facciamo una lista con tutti i dati melt
-importmelt <- lapply(meltlist,raster) # applichiamo la funzione "raster" alla lista
+importmelt <- lapply(meltlist,raster) # applichiamo la funzione "lapply" alla lista
 melt <- stack(importmelt) # creiamo un "raster stack"
 melt 
 
