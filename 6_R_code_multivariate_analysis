@@ -5,30 +5,41 @@ library(RStoolbox)
 
 setwd("C:/lab/")
 
-# usiamo la funzione brick per il set Lendsart che ha 7 bande
+
+# importiamo dentro R con la funzione brick la nostra immagine .grd
 
 p224r63_2011 <- brick("p224r63_2011_masked.grd")
 p224r63_2011
 
+
 # plottiamo l'immagine e vediamo che sono presenti 7 bande
 plot(p224r63_2011) 
 
-#plot dei valori della banda uno dei pixel contro i valori della banda due dei pixel
+
+#Confrontiamo la banda 1 con la banda 2 attraverso il plot
 plot(p224r63_2011$B1_sre, p224r63_2011$B2_sre, col="red", pch=19, cex=2) # verranno di colore rosso, pch per la forma del sibolo e cex=2 per aumentare la dimensione
 
 pairs(p224r63_2011) #mette in correlazione a due a due tutte le variabili di un certo dataset, in questo caso le bande
 
-#aggregate cells: ricampionamento. Aggreghiamo i pixel utilizzando la media per rendere il dato più leggero per poi fare con più facilità la PCA
-p224r63_2011res <- aggregate(p224r63_2011, fact=10) #linerament elo aumentiamo di 10
 
-par(mfrow=c(2,1)) #confrontiamo le due immagini, la seconda sarà molto meno definita
+#aggregate cells: ricampionamento. Aggreghiamo i pixel utilizzando la media per rendere il dato più leggero per poi fare con più facilità la PCA
+p224r63_2011res <- aggregate(p224r63_2011, fact=10) #lineramente lo aumentiamo di 10
+
+
+#confrontiamo le due immagini, la seconda sarà molto meno definita
+par(mfrow=c(2,1)) 
 plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="lin")
 plotRGB(p224r63_2011res, r=4, g=3, b=2, stretch="lin")
 
+
+# PCA: principal componing analysis
+# prenidmao un asse nella variabilità maggiore e una a quella minore
 p224r63_2011_pca <-rasterPCA(p224r63_2011res)
 
-summary(p224r63_2011_pca$model) # ci dà un sommario del nostro modello
-p224r63_2011_pca#per legare i due componenti: modello e mappa
+
+# otteniamo un sommario del nostro modello
+summary(p224r63_2011_pca$model)
+p224r63_2011_pca # per legare i due componenti: modello e mappa
 
 plot(p224r63_2011_pca$map) #per osservare graficamente la situazione del modello, lego l'oggetto alla mappa
 
