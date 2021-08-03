@@ -1,7 +1,7 @@
 # R code complete - Telerilevamento Geo-Ecologico
 
 
-#------------------------------------------------
+#--------------------------------------------
 
 
 # Summary:
@@ -16,9 +16,10 @@
 # 8. R code vegetation indices
 # 9. R code land cover
 # 10. R code variability
+# 11. R code spectral signatures
 
 
-#------------------------------------------------
+#--------------------------------------------
 
 
 # 1. Remote sensiting first code
@@ -184,7 +185,7 @@ plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="hist") #nel 2011 è visibile una s
 dev.off()
 
 
-#-----------------------------------------------
+#--------------------------------------------
 
 
 # 2. -R code time series
@@ -266,7 +267,7 @@ plot(melt_amount, col=clb) # viene così evedenziato dove c'è stato una grande 
 # abbiamo visto come visualizzare un set di dati numerosi e anche le loro differenze
 
 
-#-------------------------------------------
+#--------------------------------------------
 
 
 # 3. R code copernicus data
@@ -294,7 +295,7 @@ FAPARes <- aggregate(FAPAR, fact=100) #ricampionamento bilineare (10000 volte il
 plot(FAPARes, col=cl)
 
 
-#-------------------------------------------
+#--------------------------------------------
 
 
 # 4. R code knitr
@@ -316,7 +317,7 @@ stitch("R_code_greenland.r.txt", template=system.file("misc", "knitr-template.Rn
 # in questo caso avendo windows si è generato un file.tex che va trasformato in pdf -> usiamo overleaf
 
 
-#---------------------------------------------
+#--------------------------------------------
 
 
 # 5. R code multivariate analysis
@@ -428,7 +429,7 @@ gcc4 <- unsuperClass(gc, nClasses=4)
 plot(gcc4$map)
 
 
-#-------------------------------------------
+#--------------------------------------------
 
 
 # 7. R code ggplot2
@@ -451,7 +452,7 @@ p2 <- ggRGB(p224r63,4,3,2, stretch="lin")
 grid.arrange(p1, p2, nrow = 2) # this needs gridExtra
 
 
-#---------------------------------------------------
+#--------------------------------------------
 
 
 # 8. R code vegetation indices
@@ -546,7 +547,7 @@ plot(copNDVI)
 levelplot(copNDVI) # immagine che mostra i valori di biomassa della Terra
 
 
-#---------------------------------------
+#--------------------------------------------
 
 
 # 9. R code land cover
@@ -650,7 +651,7 @@ p2 <- ggplot(percentages, aes(x=cover, y=percent_2006, color=cover)) + geom_bar(
 grid.arrange(p1, p2, nrow=1)
 
 
-#----------------------------------------
+#--------------------------------------------
 
 
 # 10. R code variability
@@ -754,6 +755,164 @@ grid.arrange(p1, p2, p3, nrow=1)
 
 
 #--------------------------------------------
+
+
+# 11. R code spectral signatures
+
+# R_code_spectral_signatures.r
+
+library(raster)
+library(ggplot2)
+library(rgdal)
+
+setwd("C:/lab/")
+
+
+# carichiamo tutte le bande
+defor2 <- brick("defor2.jpg")
+
+# defor2.1, defor2.2, defor2.3
+#NIR, red, green
+
+plotRGB(defor2, r=1, g=2, b=3, stretch="lin") # si può anche fare stretch histogram stretch che usa una curva logistica per aumentare la pendenza della curva e le differenze saranno + accentuate.
+plotRGB(defor2, r=1, g=2, b=3, stretch="hist")
+
+# usiamo l'immagine per creare delle firme spettrali, crreremo anche un piccolo dataset per vederle in ggplot
+# click function serve per cliccare sulla mappa e ottenere informazioni
+
+click(defor2, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")   # id=identicativo, xy informazioni spaziali, T=2, type di click=point, pch è il tipo di punto, cex caracter exageration
+
+# cliccando otteniamo informazioni su xy, numero della cella, dare informazioni sulla mappa: riflettanza nelle tre bande, il primo molto alto perchè NIr perchè abbiamo cliccato sulla vegetazione
+
+#      x     y   cell defor2.1 defor2.2 defor2.3
+#1 135.5 246.5 165763      189       11       23
+#      x     y   cell defor2.1 defor2.2 defor2.3
+#1 177.5 187.5 208108       21       42       95
+
+
+# creiamo un dataframe che poi utilizziamo, useremo poi ggplot per creare le firme spettrali
+# 3 bande, foresta o acqua con i valori delle bande e poi useremo il dataframe
+
+# define the columns of the dataset
+band <- c(1,2,3)
+forest <- c(189, 11, 23)
+water <- c(21, 42, 95)
+
+# create the dataframe
+spectrals <- data.frame(band, forest, water)
+spectrals
+
+# plot the spectral signatures: facciamo un grafico in cui viene mostrata la riflettanza dei due pixel (foresta e acqua) nelle 3 bande
+
+ggplot(spectrals, aes(x=band)) + # aes= aestetics e serve oer fissare l'asse
+ geom_line(aes(y=forest), color="green") + # in questog rafico abbiamo la riflettanza di un singolo pixel della foresta nella tre bande: tanat nella banda uno, bassa nella 2 + alta nella 3
+ geom_line(aes(y=water), color="blue") +
+ labs(x="wavelenght", y="reflectance")  #labs function serve per modificare gli assi le legende..
+ 
+ 
+ ############## Multitemporal, vediamo la differenza tra defor1 e defor2, prendiamo dei punti a caso dove è presente una differenza nelle immagini
+ 
+defor1 <- brick("defor1.jpg")
+
+plotRGB(defor1, r=1, g=2, b=3, stretch="lin") 
+ 
+ # spectral signatures defor1
+ 
+click(defor1, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
+
+#      x     y  cell defor1.1 defor1.2 defor1.3
+# 1 35.5 347.5 92856       99       15        5
+#      x     y  cell defor1.1 defor1.2 defor1.3
+# 1 58.5 388.5 63605      210       37       57
+#      x     y  cell defor1.1 defor1.2 defor1.3
+# 1 80.5 376.5 72195      219       16       35
+#      x     y   cell defor1.1 defor1.2 defor1.3
+# 1 84.5 313.5 117181      217       11       31
+
+
+plotRGB(defor2, r=1, g=2, b=3, stretch="lin")
+click(defor2, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
+
+#      x     y   cell defor2.1 defor2.2 defor2.3
+# 1 60.5 336.5 101158      166      169      158
+#      x     y  cell defor2.1 defor2.2 defor2.3
+# 1 57.5 375.5 73192      177      124      132
+#      x     y   cell defor2.1 defor2.2 defor2.3
+# 1 43.5 336.5 101141      141       95       95
+#      x     y   cell defor2.1 defor2.2 defor2.3
+# 1 103.5 292.5 132749      131       63       74
+#      x     y   cell defor2.1 defor2.2 defor2.3
+# 1 96.5 326.5 108364      185      158      149
+
+
+# definiamo le colonne del dataset
+
+band <- c(1,2,3)
+time1 <- c(99, 15, 5) # primo pixel
+time1p2 <- c(210, 37, 57) # secondo pixel
+time2 <- c(166, 169, 158)
+time2p2 <- c(177, 124, 132)
+
+spectralst <- data.frame(band, time1, time2, time1p2, time2p2)
+
+ggplot(spectralst, aes(x=band)) + # aes= aestetics e serve per fissare l'asse
+ geom_line(aes(y=time1), color="red") + # in questog rafico abbiamo la riflettanza di un singolo pixel della foresta nella tre bande: tanat nella banda uno, bassa nella 2 + alta nella 3
+ geom_line(aes(y=time2), color="gray") +
+ geom_line(aes(y=time1p2), color="red") +
+ geom_line(aes(y=time2p2), color="gray") +
+ labs(x="wavelenght", y="reflectance")
+ 
+ # plot the spectral signatures
+ ggplot(spectralst, aes(x=band)) + 
+ geom_line(aes(y=time1), color="red", linetype="dotted") + 
+ geom_line(aes(y=time2), linetype="dotted") +
+ geom_line(aes(y=time1p2), color="red", linetype="dotted") +
+ geom_line(aes(y=time2p2), linetype="dotted") +
+ labs(x="wavelenght", y="reflectance")
+ 
+# image from Earth Observatory
+ 
+eo <- brick("iss063e054142.jpg")
+plotRGB(eo, 1,2,3, stretch="hist") 
+click(eo, id=T, xy=T, cell=T, type="p", pch=16, cex=4, col="yellow")
+
+ 
+#       x     y   cell iss063e054142.1 iss063e054142.2 iss063e054142.3
+# 1 186.5 435.5 190267               6               4               5
+#       x     y  cell iss063e054142.1 iss063e054142.2 iss063e054142.3
+# 1 208.5 602.5 70049             225             222             217
+#       x     y  cell iss063e054142.1 iss063e054142.2 iss063e054142.3
+# 1 655.5 608.5 66176              40              63              81
+
+
+# definiamo le colonne del dataset
+
+band <- c(1,2,3)
+crater <- c(6,4,5)
+fog <- c(225, 222, 217)
+water <- c(40, 63, 81)
+
+spectralseo <- data.frame(band, crater, fog, water)
+spectralseo
+
+band <- c(1,2,3)
+crater <- c(6,4,5)
+fog <- c(225, 222, 217)
+water <- c(40, 63, 81)
+
+spectralseo <- data.frame(band, crater, fog, water)
+spectralseo
+
+ggplot(spectralseo, aes(x=band)) + 
+ geom_line(aes(y=crater), color="red") + 
+ geom_line(aes(y=fog), color="gray") +
+ geom_line(aes(y=water), color="blue") +
+ labs(x="wavelenght", y="reflectance")
+
+
+#--------------------------------------------
+
+
 
 
 
