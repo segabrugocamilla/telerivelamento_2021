@@ -90,5 +90,7 @@ geom_raster(pc1_5, mapping = aes(x=x, y=y, fill=layer)) +
 scale_fill_viridis(option="turbo") + 
 ggtitle("Standard deviation of PC1 by turbo colour scale")
 
-# per ottenere i 3 plot con le legende e posso confrontare le diverse elgende dei colori
+# per ottenere i 3 plot con le legende e posso confrontare le diverse legende dei colori
 grid.arrange(p1, p2, p3, nrow=1)
+
+
