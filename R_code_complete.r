@@ -51,7 +51,7 @@ plot(p224r63_2011) # utilizziamo la funzione plot per visualizzare tutte le band
 
 ### DAY 2
 #colorRampPalette per cambiare i colori
-cl<-colorRampPalette(c("black","grey","light gray"))(100) # c è il vettore argomento, 100 sono i livelli del colore
+cl<-colorRampPalette(c("black","grey","light grey"))(100) # c è il vettore argomento, 100 sono i livelli del colore
 
 plot(p224r63_2011, col=cl) # plottiamo con i nuovi colori
 
