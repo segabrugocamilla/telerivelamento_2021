@@ -1,0 +1,20 @@
+# R_code_project
+install.packages("raster")
+library(sp)
+library(raster)
+
+setwd("C:/lab/Progetto") 
+
+
+burn18 <- brick("c_gls_BA300_201801100000_GLOBE_PROBAV_V1.0.1.nc")
+burn19 <- brick("c_gls_BA300_201901100000_GLOBE_PROBAV_V1.1.1.nc")
+burn20 <- brick("c_gls_BA300_202001100000_GLOBE_PROBAV_V1.1.1.nc")
+burn21 <- brick("c_gls_BA300_202101100000_GLOBE_PROBAV_V1.1.1.nc")
+
+
+cl<-colorRampPalette(c("yellow", "orange", "red"))(200)
+
+plot(burn18, col=cl)
+plot(burn19, col=cl)
+plot(burn20, col=cl)
+plot(burn21, col=cl)
