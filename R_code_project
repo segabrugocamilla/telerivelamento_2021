@@ -1,20 +1,49 @@
 # R_code_project
-install.packages("raster")
+# install.packages("raster")
 library(sp)
 library(raster)
 
 setwd("C:/lab/Progetto") 
 
 
-burn18 <- brick("c_gls_BA300_201801100000_GLOBE_PROBAV_V1.0.1.nc")
-burn19 <- brick("c_gls_BA300_201901100000_GLOBE_PROBAV_V1.1.1.nc")
-burn20 <- brick("c_gls_BA300_202001100000_GLOBE_PROBAV_V1.1.1.nc")
-burn21 <- brick("c_gls_BA300_202101100000_GLOBE_PROBAV_V1.1.1.nc")
+snow18 <- raster("c_gls_SCE500_201807020000_CEURO_MODIS_V1.0.1.nc")
+snow19 <- raster("c_gls_SCE500_201907010000_CEURO_MODIS_V1.0.1.nc")
+snow20 <- raster("c_gls_SCE500_202007010000_CEURO_MODIS_V1.0.1.nc")
+snow21 <- raster("c_gls_SCE500_202107010000_CEURO_MODIS_V1.0.1.nc")
 
 
-cl<-colorRampPalette(c("yellow", "orange", "red"))(200)
+cl<-colorRampPalette(c("pink", "red", "purple"))(100)
 
-plot(burn18, col=cl)
+plot(snow18, col=cl)
 plot(burn19, col=cl)
 plot(burn20, col=cl)
 plot(burn21, col=cl)
+
+
+par(mfrow=c(2,2))
+plot(snow18, col=cl)
+plot(snow19, col=cl)
+plot(snow20, col=cl)
+plot(snow21, col=cl)
+
+
+water18 <- raster("c_gls_LSWT_201806210000_GLOBE_SLSTRA_v1.0.2.nc")
+water19 <- raster("c_gls_LSWT_201906210000_GLOBE_SLSTRA_v1.0.2.nc")
+water20 <- raster("c_gls_LSWT_202006210000_GLOBE_SLSTRA_v1.0.1.nc")
+water21 <- raster("c_gls_LSWT_202106210000_GLOBE_SLSTRAB_v1.1.0.nc")
+
+
+
+cl<-colorRampPalette(c("pink", "red", "purple"))(100)
+
+plot(water18, col=cl)
+plot(water19, col=cl)
+plot(water20, col=cl)
+plot(water21, col=cl)
+
+par(mfrow=c(2,2))
+plot(water18, col=cl)
+plot(water19, col=cl)
+plot(water20, col=cl)
+plot(water21, col=cl)
+
