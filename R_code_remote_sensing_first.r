@@ -18,7 +18,7 @@ plot(p224r63_2011) # utilizziamo la funzione plot per visualizzare tutte le band
 # B1: blu
 # B2: verde
 # B3: rosso
-# B4: NIR
+# B4: NIR (infrarosso vicino)
 # B5: infrarosso medio
 # B6: infrarosso termico
 # B7: infrarosso medio
@@ -42,7 +42,7 @@ cl<-colorRampPalette(c("green","purple","orange","pink"))(200)
 plot(p224r63_2011$B1_sre)
 plot(p224r63_2011$B2_sre)
 
-dev.off() #per chiudere i grafici
+dev.off() #per chiudere i grafici aperti
 
 # par funzione generica, serve per fare un settaggio dei parametri grafici di un grafico che si vuole creare 
 # multiframe - plot di diverse bande all'interno di uno stesso grafico
