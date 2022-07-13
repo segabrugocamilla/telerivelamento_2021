@@ -45,7 +45,7 @@ plot(p224r63_2011$B2_sre)
 dev.off() #per chiudere i grafici aperti
 
 # par funzione generica, serve per fare un settaggio dei parametri grafici di un grafico che si vuole creare 
-# multiframe - plot di diverse bande all'interno di uno stesso grafico
+# multiframe - plot di due o più bande all'interno di uno stesso grafico
 # multiframe : 1 riga, 2 colonne
 par(mfrow=c(1,2))
 plot(p224r63_2011$B1_sre)
