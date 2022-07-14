@@ -5,7 +5,7 @@
 # install.packages ("raster")
 library(raster)
 # install.packages("rasterVis")
-library(rasterVis)
+library(rasterVis) # metodi di visualizzazione per i raster
 
 setwd("C:/lab/greenland")
 
@@ -14,7 +14,7 @@ setwd("C:/lab/greenland")
 # STACK -> funzione utilizzata per trasformare dati disponibili come colonne separate in un dataframe o lista avente una singola colonna che può essere utilizzato nello studio dei modelli di variaanza o altri modelli lineari
 # utilizziamo la funzioen raster presente nel pacchetto raster per creare un oggetto RasterLayer
 
-lst_2000 <- raster("lst_2000.tif") 
+lst_2000 <- raster("lst_2000.tif") # importiamo e associamo un nome a un singolo raster
 plot(lst_2000)
 
 lst_2005 <- raster("lst_2005.tif")
@@ -30,14 +30,14 @@ plot(lst_2000)
 plot(lst_2010)
 plot(lst_2015)
 
-#we wont to list the files in a Directory/Folder
-#list.files
+#vogliamo creare una lista di files in una Directory/Folder
+#utiliazziamo la funzione: list.files
 rlist<-list.files(pattern="lst") #abbiamo fatto la lista dei files che contenevano "lst" e lo associamo all'oggetto "rlist"
 rlist
 
-#lapply a function over a list-like or vector-like object
-#lapply(X, FUN, ...)
-import <- lapply(rlist,raster) #abbiamo applicato la funzione "raster" alla lista "rlist" precedentemente creata e l'abbiamo associato all'oggetto "import"
+#lapply è una funzione che può essere usara su oggetti che siano liste o vettori 
+#lapply(X, FUN, ...) -> applica un'altra funzione a una lista di files
+import <- lapply(rlist,raster) #abbiamo applicato la funzione "raster" alla lista "rlist" precedentemente creata e l'abbiamo associato all'oggetto "import". in questo modo importiamo la lista di files
 import
 
 TGr <- stack(import) #la funzione stack crea un unico file grande che comprende tutti i dati che associamo all'oggetto "TGr"
