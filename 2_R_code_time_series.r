@@ -1,6 +1,6 @@
 # Time series analysis
-# Greenland increase of temperature
-# Data and code from Emanuela Cosma
+# Greenland aumento della temperatura
+# Dati e codici presi da un progetto di Emanuela Cosma
 
 # install.packages ("raster")
 library(raster)
