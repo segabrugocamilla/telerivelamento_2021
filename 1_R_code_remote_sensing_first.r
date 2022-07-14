@@ -110,6 +110,8 @@ p224r63_2011<-brick("p224r63_2011_masked.grd")
 # vogliamo osservare l'immagine con lo schema dei colori RGB (red, green e blu) associati alle prime 3 bande, in questo modo sarà possibile vedere l'immagine con i colori naturali
 plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin") #la funzione stretch lineare serve per visuaizzare meglio i colori, affinchè non si crei uno schiacciamento verso un valore
 
+#al posto di r=3, g=2, b=1 si possono mettere direttamente i numeri: 1,2,3 
+
 #montiamo queste quattro bande in un multiframe 2x2
 pdf("mio_primo_pdf_in_R.pdf") # salviamo il pdf dell'immagine
 par(mfrow=c(2,2))
