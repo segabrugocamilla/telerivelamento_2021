@@ -107,8 +107,8 @@ p224r63_2011<-brick("p224r63_2011_masked.grd")
 # B6: infrarosso termico
 # B7: infrarosso medio
 
-# vogliamo osservare l'immagine con lo schema dei colori RGB (rosso, giallo e blu) associati alle prime 3 bande, in questo modo sarà possibile vedere l'immagine con i colori naturali
-plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin") #la funzione stretch lineare serve per visuaizzare meglio i colori, serve perchè non ci sia uno schiacciamento verso un valore
+# vogliamo osservare l'immagine con lo schema dei colori RGB (red, green e blu) associati alle prime 3 bande, in questo modo sarà possibile vedere l'immagine con i colori naturali
+plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin") #la funzione stretch lineare serve per visuaizzare meglio i colori, affinchè non si crei uno schiacciamento verso un valore
 
 #montiamo queste quattro bande in un multiframe 2x2
 pdf("mio_primo_pdf_in_R.pdf") # salviamo il pdf dell'immagine
@@ -119,9 +119,9 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin") #così vedo bene la vegetazi
 plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
 
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
-plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist") # chiamata anche funzione logistica, aumenta lo strech e la possibilità delle componenti della foresta da vedere
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist") # chiamata anche funzione logistica, aumenta lo strech e la possibilità di vedere nuove componenti della foresta (es. umidità)
 
-#par colori naturali, colori con infrarosso sul verde, colori con infrarosso sul verde con funzione hist dello strech
+#par dell'immagine con colori naturali, colori con infrarosso sul verde, colori con infrarosso sul verde con funzione hist dello strech
 par(mfrow=c(3,1))
 plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin")
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin") 
@@ -129,7 +129,7 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
 
 ### DAY 5
 # Multitemporal set
-# 1988 image
+# importiamo un'immagine uguale a quella usata fino ad ora del 2011, ma presa nel 1988
 p224r63_1988<-brick("p224r63_1988_masked.grd") #brick serve per importare un intero set di bande creando l'oggeto RasterBrick
 p224r63_1988 
 
@@ -146,7 +146,7 @@ plot(p224r63_1988) #vengono plottate le singole bande non in RGB
 plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #mettiamo la banda B3 sul rosso, la banda B2 sul verde e B1 sul blu
 
 plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #plot con colori naturali
-plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin") #in questo modo si vedrà in rosso la banda dell'infrarosso, tutto quello che è rosso è la componente della foresta
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin") #in questo modo si vedrà in rosso la banda dell'infrarosso, tutto quello che è rosso è la componente della foresta perchè la vegetazione riflette nel NIR
 
 #facciamo un plot delle immagini del 1988 e 2011 per confrontare le diverse distribuzioni della foresta:
 par(mfrow=c(1,2))
