@@ -49,28 +49,34 @@ plotRGB(TGr, 2, 3, 4, stretch="Lin")
 
 library(rasterVis) #che abbiamo installato per supportare la funzione "levelplot"
 
-levevlplot(TGr) # mostra le 4 immagini satellitari
-levelplot(TGr$lst_2000) # il grafico, smostra l'andatura media della temperatura per colonna, lo stesso a destra per riga
+levelplot(TGr) # mostra le 4 immagini satellitari con le variazioni di temperatura
+levelplot(TGr$lst_2000) # il grafico, mostra l'andatura media della temperatura per colonna, lo stesso a destra per riga
 
 cl <- colorRampPalette(c("pink","purple","orange","light blue"))(100) #cambiamo la colorRampPalette, possiamo farlo perchè plottiamo delle immagini singole e non un'immagine satellitare in RGB
 levelplot(TGr, col.regions=cl)
 
-levelplot(TGr,col.regions=cl,names.attr=c("July 2000","July 2005","July 2010","July 2015")) #rinominiamo gli attributi (le 4 immagini nel grafico)
+levelplot(TGr,col.regions=cl,names.attr=c("July 2000","July 2005","July 2010","July 2015")) #rinominiamo gli attributi per le 4 immagini nel grafico
+
+#inseriamo il titolo
+levelplot(TGr,col.regions=cl, main="LST variation in time",
+          names.attr=c("July 2000","July 2005","July 2010","July 2015"))
 
 
-# usiamo i dati Melt
+#usiamo i dati Melt (dati sullo scioglimento dei ghiacciai dal 1979 al 2007)
 
 meltlist<-list.files(pattern="melt") # facciamo una lista con tutti i dati melt
-importmelt <- lapply(meltlist,raster) # applichiamo la funzione "lapply" alla lista
+importmelt <- lapply(meltlist,raster) #con "lapply" applichiamo la funzione "raster" alla lista
 melt <- stack(importmelt) # creiamo un "raster stack"
 melt 
 
 levelplot(melt) #otteniamo il grafico con i valori dello sciogliemto dei ghiacci dal 1979 al 2007
           
 # facciamo la sottrazione tra il primo dato e il secondo e creiamo un file con la differenza
-melt_amount <- melt$X2007annual_melt - melt$X1979annual_melt
+melt_amount <- melt$X2007annual_melt - melt$X1979annual_melt #dobbiamo legare il file orginario allo strato interno
 
 clb <- colorRampPalette(c("blue","white","red"))(100) #creiamo la colorRampPalette
-plot(melt_amount, col=clb) # viene così evedenziato dove c'è stato una grande diminuizione del ghiaccio dal 1979 al 2007
-# abbiamo visto come visualizzare un set di dati numerosi e anche le loro differenze
+plot(melt_amount, col=clb) # viene così evedenziato dove c'è stato una grande diminuizione del ghiaccio dal 1979 al 2007 (zona rossa)
+levelplot(melt_amount) #mostra la media dei valori di scioglimento nei pixel per colonna e riga
+
+# abbiamo visto come visualizzare un set di dati numerosi e anche come osservarne le differenze di valori
 
