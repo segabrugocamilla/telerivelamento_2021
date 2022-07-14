@@ -10,7 +10,7 @@ library(RStoolbox)
 setwd("C:/lab/") # settiamo la set working director
 
 p224r63_2011<-brick("p224r63_2011_masked.grd") # brick è la funzione per creare un raster multistrato: importa un intero set di dati (nel nostro caso bande dai satelliti) creando un RasterBrick. Asocciamo il nome "p224r63_2011"
-# p224r63_2011
+# p224r63_2011 : inserendo il nome su R visualizziamo le informazioni contenute nell'immagine
 
 plot(p224r63_2011) # utilizziamo la funzione plot per visualizzare tutte le bande con i valori di riflettanza
 
@@ -47,9 +47,11 @@ dev.off() #per chiudere i grafici aperti
 # par funzione generica, serve per fare un settaggio dei parametri grafici di un grafico che si vuole creare 
 # multiframe - plot di due o più bande all'interno di uno stesso grafico
 # multiframe : 1 riga, 2 colonne
-par(mfrow=c(1,2)) #si mette la c dvanti ai due blocchi perchè è un vettore, se ci sono più blocchi stiamo avendo a che fare con un vettore
+par(mfrow=c(1,2)) #si mette la c dvanti ai due blocchi perchè è un vettore, se ci sono più blocchi stiamo avendo a che fare con un vettore. come già visto per i colori nella funzione colorRampPalette
 plot(p224r63_2011$B1_sre)
 plot(p224r63_2011$B2_sre)
+
+# se si vogliono inserire prima le righe e poi le colonne si utilizza: par(mfrow..), se si desidera mettere prima le colonne e poi le righe invece si utilizza: par(mfcol...)
 
 # 2 righe, 1 colonne
 par(mfrow=c(2,1))
@@ -84,7 +86,8 @@ plot(p224r63_2011$B3_sre, col=clr)
 clnir <- colorRampPalette(c("red","orange","yellow")) (100)
 plot(p224r63_2011$B4_sre, col=clnir)
 
-# abbiamo imparato come predisporre in maniera riassuntiva le immagini, come plottarle
+# questi comandi servono per predisporre in maniera riassuntiva le immagini, unendo e colorando le diverse bande
+
 
 ### DAY 4
 # Visualizing data by RGB plotting
@@ -104,15 +107,8 @@ p224r63_2011<-brick("p224r63_2011_masked.grd")
 # B6: infrarosso termico
 # B7: infrarosso medio
 
-#per osservare l'immagine con le componenti dei colori RGB associati alle prime 3 bande
-plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin") #la funzione stretch lineare serve per visuaizzare meglio i colori
-
-#vogliamo vedere l'infrarosso vicino, quindi facciamo slittare di uno le bande
-plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
-
-#cambio la componente su cui monto la banda dell'infrarosso vicino per visualizzare diverse proprietà della vegetazione nell'immagine
-plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
-plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
+# vogliamo osservare l'immagine con lo schema dei colori RGB (rosso, giallo e blu) associati alle prime 3 bande, in questo modo sarà possibile vedere l'immagine con i colori naturali
+plotRGB(p224r63_2011, r=3, g=2, b=1, stretch="Lin") #la funzione stretch lineare serve per visuaizzare meglio i colori, serve perchè non ci sia uno schiacciamento verso un valore
 
 #montiamo queste quattro bande in un multiframe 2x2
 pdf("mio_primo_pdf_in_R.pdf") # salviamo il pdf dell'immagine
@@ -123,7 +119,7 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin") #così vedo bene la vegetazi
 plotRGB(p224r63_2011, r=3, g=2, b=4, stretch="Lin")
 
 plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="Lin")
-plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist") # chiamata anche funzione logistica, aumenta lo strech e la possibilità di quello che vediamo 
+plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist") # chiamata anche funzione logistica, aumenta lo strech e la possibilità delle componenti della foresta da vedere
 
 #par colori naturali, colori con infrarosso sul verde, colori con infrarosso sul verde con funzione hist dello strech
 par(mfrow=c(3,1))
@@ -137,10 +133,18 @@ plotRGB(p224r63_2011, r=3, g=4, b=2, stretch="hist")
 p224r63_1988<-brick("p224r63_1988_masked.grd") #brick serve per importare un intero set di bande creando l'oggeto RasterBrick
 p224r63_1988 
 
-plot(p224r63_1988)
-plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #mettiamo la banda B3 sul rosso, la banda B2 sul verde e B1 sul blu
+# Bande Landsat
+# B1: blu
+# B2: verde
+# B3: rosso
+# B4: NIR
+# B5: infrarosso medio
+# B6: infrarosso termico
+# B7: infrarosso medio
 
 plot(p224r63_1988) #vengono plottate le singole bande non in RGB
+plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #mettiamo la banda B3 sul rosso, la banda B2 sul verde e B1 sul blu
+
 plotRGB(p224r63_1988, r=3, g=2, b=1, stretch="Lin") #plot con colori naturali
 plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin") #in questo modo si vedrà in rosso la banda dell'infrarosso, tutto quello che è rosso è la componente della foresta
 
@@ -152,10 +156,10 @@ plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
 # creiamo il pdf dell'analisi multitemporale
 pdf("multitemp.pdf")
 par(mfrow=c(2,2))
-plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin")
-plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
-plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="hist") #molto visibili le variazioni dovute al rumore sull'immagine. 
-plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="hist") #nel 2011 è visibile una soglia netta del passaggio tra foresta pluviale e l'impatto umano con la coltivazione
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="Lin") # è visibile un passaggio graduale da un ambiente all'altro
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin") # nel 2011 è visibile una soglia netta del passaggio tra foresta pluviale e l'impatto umano con la coltivazione
+plotRGB(p224r63_1988, r=4, g=3, b=2, stretch="hist") #molto visibili le variazioni dovute al rumore sull'immagine
+plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="hist") 
 dev.off()
 
 
