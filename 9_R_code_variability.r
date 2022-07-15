@@ -17,21 +17,23 @@ library(viridis) # serve per colorare i plot automaticamente
 setwd("C:/lab/")
 
 sent <- brick("sentinel.png") # portiamo dentro R l'immagine che abbiamo scaricato del ghiacciao del Similaun
+sent
 
+# NIR 1, RED 2, GREEN 3
+# r=1, g=2, b=3
 plotRGB(sent, stretch="lin") # non dobbiamo specificare in che colore mettere le bande perchè sono già r=1, g=2, b=3 dove NIR 1, RED 2, GREEN 3
 
 plotRGB(sent, r=2, g=1, b=3, stretch="lin") # viene mostrata la componente rocciosa in viola, la vegetazione in verde e acqua in nero perchè assorbe il NIR
 
-# calcoliamo l'indice NDVI e calcoliamo la varibilità dell'immagine
-sent # per vedere come si chiamano le bande
-# rinominiamo e leghiamo le bande all'immagine
-nir <- sent$sentinel.1
+# al fine di compattare i nostri dati in un solo "strato" calcoliamo l'indice NDVI e calcoliamo la varibilità dell'immagine
+
+nir <- sent$sentinel.1 # rinominiamo e leghiamo le bande all'immagine
 red <- sent$sentinel.2
 
 ndvi <- (nir-red)/ (nir+red)
 plot(ndvi) # dove è presente il bianco non c'è vegetazione, marroncino rappresenta la roccia, giallo e verde chiaro è la vegetazione 
 
-cl<- clorRampPalette(c('black', 'white', 'red', 'magenta', 'green'))(100)
+cl<- colorRampPalette(c('black', 'white', 'red', 'magenta', 'green'))(100) #creiamo una nostra palette
 plot(ndvi, col=cl)
 
 # calcoliamo la deviazione standard di questa immagine
@@ -41,13 +43,15 @@ plot(ndvisd3)
 clsd <- colorRampPalette(c('blue', 'green', 'pink', 'magenta', 'orange', 'brown', 'red', 'yellow'))(100)
 plot(ndvisd3, col=clsd) # la deviazione standard del NDVI è più bassa dove è presente la roccia nuda ed aumenta in corrispondenza del passaggio alla vegetazione per poi diminuire di nuovo nelle parti vegetate
 
-# calcoliamo la media del ndvi con focal
+#calcoliamo la media del ndvi con focal
+#con la fun =sd vogliamo calcolarci la deviazione standard
+#per isotropia utilizzaimo  le caselle 3x3 (isotropia=presenta le stesse proprietà in tutte le direzioni)
 ndvimean3 <- focal(ndvi, w=matrix(1/9, nrow=3, ncol=3), fun=mean)
 
 clsd <- colorRampPalette(c('blue', 'green', 'pink', 'magenta', 'orange', 'brown', 'red', 'yellow'))(100)
 plot(ndvimean3, col=clsd) # media per 3 pixel. si ottengono valori molti alti nelle praterie di alta quota e per la parte seminaturale. valori più bassi per la roccia nuda
 
-# cambiamo la finestra: 11x11 pixel
+# cambiamo la finestra: 11x11 pixel e facciamo smepre la media con la funzione focal
 ndvisd11 <- focal(ndvi, w=matrix(1/121, nrow=11, ncol=11), fun=sd) 
 clsd <- colorRampPalette(c('blue', 'green', 'pink', 'magenta', 'orange', 'brown', 'red', 'yellow'))(100)
 plot(ndvisd11, col=clsd) # se ho un immagine con dettagli molto alti è meglio usare una finestra più piccola. finestre troppo grandi rischiano di omogenizzare il risultato.
@@ -57,7 +61,7 @@ ndvisd5 <- focal(ndvi, w=matrix(1/25, nrow=5, ncol=5), fun=sd) # situazione idea
 clsd <- colorRampPalette(c('blue', 'green', 'pink', 'magenta', 'orange', 'brown', 'red', 'yellow'))(100)
 plot(ndvisd5, col=clsd)         
 
-# PCA: analisi multivariata su tutto il dataset e poi prendiamo la PC1 (unico strato) per fare una finestra e calcolare una mappa di deviazione standard
+# per compattare i dati usiamo la PCA: analisi multivariata su tutto il dataset e poi prendiamo la PC1 (unico strato) per fare una finestra e calcolare una mappa di deviazione standard
 sentpca <- rasterPCA(sent) # fa l'analisi dei componenit principali per il raster
 plot(sentpca$map) # la prima componente mantiene il range di iniformazione più alto. passando alle PC successive l'informazione si perde
 
@@ -67,6 +71,7 @@ summary(sentpca$model) # per vedere quanta variabilità iniziale spiegano le sin
 # la prima PC spiega il 0.6736804 dell'informazione originale.
 
 pc1 <- sentpca$map$PC1
+
 pc1_5 <- focal(pc1, w=matrix(1/25, nrow=5, ncol=5), fun=sd)
 clsd <- colorRampPalette(c('blue', 'green', 'pink', 'magenta', 'orange', 'brown', 'red', 'yellow'))(100)
 plot(pc1_5, col=clsd) # molto ben visibile la variabilità del paesaggio
