@@ -21,7 +21,12 @@ plotRGB(defor2, r=1, g=2, b=3, stretch="lin") # vediamo le due immagine sulla st
 
 # calcoliamo il primo indice di vegetazione (NIR-RED)
 
-defor1 # andiamo a vedere il nome delle bande aprendo tutte le informazioni del file e vediamo che il NIR si chiama defor1.1 e il RED defor1.2
+# andiamo a vedere il nome delle bande aprendo tutte le informazioni del file
+defor1 
+# names: defor1_.1, defor1_.2, defor1_.3 
+# defor1_.1 = NIR
+# defor1_.2 = red
+# defor1_.3 = green
 
 dvi1 <- defor1$defor1.1-defor1$defor1.2 # per ogni pixel prendiamo il valore nel NIR e sottraiamo il valore nel RED, si crea una mappa composta dalla differenza dei pixel = DVI
 
