@@ -19,7 +19,7 @@ plot(p224r63_2011)
 #Confrontiamo la banda 1 con la banda 2 attraverso il plot
 plot(p224r63_2011$B1_sre, p224r63_2011$B2_sre, col="red", pch=19, cex=2) # verranno di colore rosso, pch per la forma del sibolo e cex=2 per aumentare la dimensione
 
-pairs(p224r63_2011) #mette in correlazione a due a due tutte le variabili di un certo dataset, in questo caso le bande
+pairs(p224r63_2011) #mette in correlazione a due a due tutte le variabili di un certo dataset, in questo caso le 7 bande
 
 
 #aggregate cells: ricampionamento. Aggreghiamo i pixel utilizzando la media per rendere il dato più leggero per poi fare con più facilità la PCA
