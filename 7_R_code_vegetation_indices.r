@@ -33,7 +33,6 @@ plot(dvi1, col=cl, main="DVI at time 1") # in questo modo visualizziamo il DVI c
 # calcoliamo l'indice di vegetazione per la seconda immagine
 dvi2 <- defor2$defor2.1-defor2$defor2.2
 
-plotdvi2
 cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100)
 
 plot(dvi2, col=cl, main="DVI at time 2") # è ben visibile in giallo la parte in cui non è più presente vegetazione
@@ -53,6 +52,7 @@ plot(difdvi, col=cld)
 
 # ndvi: facciamo la standardizzazione sulla somma dell'indice di vegetazione
 # NDVI= (NIR-RED) / (NIR+RED)
+#utilizziamo la ndvi perchè possiamo trovare immagini a 8 o 16 bit e se dobbiamo utilizzarle insieme i valori non corrisponderanno, per questo il valore viene normalizzato
 
 ndvi1 <- (defor1$defor1.1 - defor1$defor1.2) / (defor1$defor1.1 + defor1$defor1.2)
 # si potrebbe anche fare ndvi1 <- dvi1 / (defor1$defor1.1 + defor1$defor1.2)
@@ -67,7 +67,7 @@ ndvi2 <- (defor2$defor2.1 - defor2$defor2.2) / (defor2$defor2.1 + defor2$defor2.
 plot(ndvi2, col=cl)
 
 # Rstoolbox: spectralIndices
-# si può usare la funzione spectralIndices che calcola diversi indici multrispettrali
+#con questa funzione inserendo l'immagine possiamo calcoalre molti indici spettrali che possono esserci utili
 vi1 <- spectralIndices(defor1, green = 3, red = 2, nir = 1)
 plot (vi1, col=cl)
 
@@ -79,7 +79,6 @@ cld <- colorRampPalette(c('blue','white','red'))(100)
 plot(difdvi, col=cld)
 
 # worldwilde NDVI
-plot(copNDVI)
 
 copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) # per oscurare i valori dell'acqua che non ci interessano
 plot(copNDVI)
