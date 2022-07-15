@@ -8,13 +8,14 @@ setwd("C:/lab/")
 
 # scarichiamo i dati dei diversi livelli energetici del sole dalla pagina di Virtuale e le mettiamo nella cartella lab.
 so<-brick("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg") # abbiamo portato all'interno di R l'immagine chiamoandola "so"
-so # mostra i livelli energetici da 0 a 255 in bit
+so # mostra i livelli energetici da 0 a 255
 
 # visualizziamo i livelli RGB
 plotRGB(so, 1,2,3, stretch="lin")
 
 # Classificazione non supervisionata, senza impatto dell'utente i pixel vengono associati per il valore in RGB
-soc <- unsuperClass(so, nClasses=3) # questa funzione crea in uscita il modello e la mappa. Utilizziamo 3 classi.
+
+soc <- unsuperClass(so, nClasses=3) # questa funzione crea in uscita il modello e la mappa. Utilizziamo 3 classi, i pixel bengono associati per maximum likelihood
 plot(soc$map) # facciamo plot dell'immagine classificata e visto che vogliamo vedere la mappa la leghiamo a quest'ultima
 
 # Classificazione non supervisionata con 20 classi, diamo un nuovo nome per non sovrascrivere sul precedente
@@ -32,7 +33,6 @@ plot(sunc$map, col=cl)
 cl <- colorRampPalette(c('yellow','purple','pink'))(100)
 plot(sunc$map, col=cl)
 
-# la funzione "mask" serve per nascondere il rumore dato dalla presenza delle nuvole
 
 # Gran Canyon 
 # https://landsat.visibleearth.nasa.gov/view.php?id=80948
@@ -40,11 +40,11 @@ plot(sunc$map, col=cl)
 gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")
 
 plotRGB(gc, r=1, g=2, b=3, stretch="lin")
-plotRGB(gc, r=1, g=2, b=3, stretch="hist")
+plotRGB(gc, r=1, g=2, b=3, stretch="hist") #otteniamo un immagine con molti più particolari
 
-gcc2 <- unsuperClass(gc, nClasses=2)
+gcc2 <- unsuperClass(gc, nClasses=2) #classifichiamo i pixel in 2 classi attraverso il processo di maximum likelihood
 gcc2
-plot(gcc2$map)
+plot(gcc2$map) #per fare il plot dell'immagine classificata uniamo questa alla mappa
 
-gcc4 <- unsuperClass(gc, nClasses=4)
+gcc4 <- unsuperClass(gc, nClasses=4) #facciamo una classificazione in 4 classi
 plot(gcc4$map)
