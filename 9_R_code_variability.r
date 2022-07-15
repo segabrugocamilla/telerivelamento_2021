@@ -68,7 +68,7 @@ plot(sentpca$map) # la prima componente mantiene il range di iniformazione più 
 sentpca # $call= funzione che abbiamo usato. $model= princomp(cor = spca, comvmat = covMat[[1]]). cor= correlazione, covmat= matrice di covarianza. $map : RasterBrick 
 
 summary(sentpca$model) # per vedere quanta variabilità iniziale spiegano le singole componenti
-# la prima PC spiega il 0.6736804 dell'informazione originale.
+# la prima PC spiega il 0.6736804 dell'informazione originale, quindi il 67 %
 
 pc1 <- sentpca$map$PC1
 
