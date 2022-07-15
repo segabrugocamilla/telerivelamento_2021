@@ -10,8 +10,8 @@ library(rasterVis)
 
 setwd("C:/lab/")
 
-defor1<-brick("defor1.jpg")
-defor2<-brick("defor2.jpg")
+defor1<-brick("defor1.jpg") #immagine della foresta amazzonica al tempo 1
+defor2<-brick("defor2.jpg") #immagine della foresta amozzonica al tempo 2
 
 # b1= NIR, b2= red, b3= green
 
@@ -19,16 +19,16 @@ par(mfrow=c(2,1))
 plotRGB(defor1, r=1, g=2, b=3, stretch="lin")
 plotRGB(defor2, r=1, g=2, b=3, stretch="lin") # vediamo le due immagine sulla stessa colonna, si nota la grande diminuzione di vegetazione della foresta amazzonica
 
-# calcoliamo il primo indice di vegetazione
+# calcoliamo il primo indice di vegetazione (NIR-RED)
 
 defor1 # andiamo a vedere il nome delle bande aprendo tutte le informazioni del file e vediamo che il NIR si chiama defor1.1 e il RED defor1.2
 
-dvi1 <- defoder1$defor1.1-defor1$defor1.2 # per ogni pixel prendiamo il valore nel NIR e sottraiamo il valore nel RED, si crea una mappa composta dalla differenza dei pixel = DVI
+dvi1 <- defor1$defor1.1-defor1$defor1.2 # per ogni pixel prendiamo il valore nel NIR e sottraiamo il valore nel RED, si crea una mappa composta dalla differenza dei pixel = DVI
 
-plotdvi1
+
 cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifichiamo lo schema dei colori in modo che si veda bene la vegetazione in rosso
 
-plot(dvi1, col=cl, main="DVI at time 1") # in questo modo visualizziamo il DVI che abbiamo appena calcolato
+plot(dvi1, col=cl, main="DVI at time 1") # in questo modo visualizziamo il DVI che abbiamo appena calcolato e lo chiamiamo "DVI at time 1" perchè ci mostra l'indice di vegetazione della prima immagine della foresta amazzonica
 
 # calcoliamo l'indice di vegetazione per la seconda immagine
 dvi2 <- defor2$defor2.1-defor2$defor2.2
