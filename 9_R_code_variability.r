@@ -1,11 +1,17 @@
 # R_code_variability.r
 # Analizziamo pattern spaziali tramite l’uso di indici del paesaggio nell’area del ghiacciao del Similaun
 
+#install.packages("raster")
+#install.packages("RStoolbox")
+#install.packages("ggplot2")
+#install.packages("gridExtra")
+#install.packages("viridis")
+
+
 library(raster)
 library(RStoolbox)
 library(ggplot2) # per ploottare ggplot
 library(gridExtra) # per plottare insieme ggplot
-#install.packages("viridis")
 library(viridis) # serve per colorare i plot automaticamente
 
 setwd("C:/lab/")
