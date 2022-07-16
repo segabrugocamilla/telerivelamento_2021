@@ -4,15 +4,27 @@
 #install.packages("raster")
 
 library(raster)
-library(RStoolbox)
 library(ncdf4)
 
 setwd("C:/lab/")
 
+heet_2019<-raster("c_gls_LST10-TCI_201907010000_GLOBE_GEO_V1.2.1.nc")
+lst2020<-raster("c_gls_LST10-TCI_202007010000_GLOBE_GEO_V1.2.1.nc")
+lst2021<-raster("c_gls_LST10-TCI_202107010000_GLOBE_GEO_V2.1.1.nc")
+lst2022<-raster("c_gls_LST10-TCI_202207010000_GLOBE_GEO_V2.1.1.nc")
 
-lst_2022<-raster("c_gls_LST10-DC_202207010000_GLOBE_GEO_V2.0.1.nc")
+lst2019
+lst2020
+lst2021
+lst2022
 
-plot(lst_2022)
+cl<-colorRampPalette(c("yellow","red","purple")
 
 
+par(mfrow=c(2,2))
+
+plot(lst2019,col=cl,main="Luglio 2019")
+plot(lst2020,col=cl,main="Luglio 2020")
+plot(lst2021,col=cl,main="Luglio 2021")
+plot(lst2022,col=cl,main="Luglio 2022")
 
