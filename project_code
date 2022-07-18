@@ -2,29 +2,90 @@
 
 #install.packages("ncdf4")
 #install.packages("raster")
+#install.packages("RStoolbox")
+#install.packages("ggplot2")
 
 library(raster)
 library(ncdf4)
+library(RStoolbox)
+library(ggplot2)
 
 setwd("C:/lab/")
 
-heet_2019<-raster("c_gls_LST10-TCI_201907010000_GLOBE_GEO_V1.2.1.nc")
-lst2020<-raster("c_gls_LST10-TCI_202007010000_GLOBE_GEO_V1.2.1.nc")
-lst2021<-raster("c_gls_LST10-TCI_202107010000_GLOBE_GEO_V2.1.1.nc")
-lst2022<-raster("c_gls_LST10-TCI_202207010000_GLOBE_GEO_V2.1.1.nc")
+lst_2019<-raster("c_gls_LST10-TCI_201907010000_GLOBE_GEO_V1.2.1.nc")
+lst_2020<-raster("c_gls_LST10-TCI_202007010000_GLOBE_GEO_V1.2.1.nc")
+lst_2021<-raster("c_gls_LST10-TCI_202107010000_GLOBE_GEO_V2.1.1.nc")
+lst_2022<-raster("c_gls_LST10-TCI_202207010000_GLOBE_GEO_V2.1.1.nc")
 
-lst2019
-lst2020
-lst2021
-lst2022
+lst_2019
+lst_2020
+lst_2021
+lst_2022
 
-cl<-colorRampPalette(c("yellow","red","purple")
+cla<- colorRampPalette(c('yellow', 'red','purple'))(100)
 
 
 par(mfrow=c(2,2))
 
-plot(lst2019,col=cl,main="Luglio 2019")
-plot(lst2020,col=cl,main="Luglio 2020")
-plot(lst2021,col=cl,main="Luglio 2021")
-plot(lst2022,col=cl,main="Luglio 2022")
+plot(lst_2019,col=cla,main="Luglio 2019")
+plot(lst_2020,col=cla,main="Luglio 2020")
+plot(lst_2021,col=cla,main="Luglio 2021")
+plot(lst_2022,col=cla,main="Luglio 2022")
+
+
+clb<-colorRampPalette(c('light blue','red'))(100)
+
+
+c2019<-unsuperClass(lst_2019,nClasses=2)
+c2022<-unsuperClass(lst_2022,nClasses=2)
+
+
+par(mfrow=c(1,2))
+plot(c2019$map,col=clb,main="Luglio 2019")
+plot(c2022$map,col=clb,main="Luglio 2022")
+
+
+freq(c2019$map)
+#     value    count
+#[1,]     1  2148482
+#[2,]     2  2695253
+#[3,]    NA 24057641
+Tot2019<-(2148482+2695253)
+
+
+freq(c2022$map)
+#     value    count
+#[1,]     1  3362190  freddo
+#[2,]     2  2443330  caldo
+#[3,]    NA 23095856
+Tot2022<-(3362190+2443330)
+
+percent2019<-freq(c2019$map)*100/Tot2019
+percent2019
+#            value     count
+#[1,] 2.064523e-05  44.35589
+#[2,] 4.129045e-05  55.64411
+#[3,]           NA 496.67542
+
+percent2022<-freq(c2019$map)*100/Tot2022
+percent2022
+#            value     count
+#[1,] 1.722499e-05  37.00757
+#[2,] 3.444997e-05  46.42569
+#[3,]           NA 414.39253
+
+cover<-c("cold","heat")
+Luglio2019<-c(2148482,2695253)
+Luglio2022<-c(3362190,2443330)
+output<-data.frame(cover,Luglio2019,Luglio2022)
+View(output)
+
+
+Grafic1<-ggplot(output,aes(x=cover,y=Luglio2019,color=cover))+geom_bar(stat="identity",fill="gray")
+plot(Grafic1)
+
+Grafic2<-ggplot(output,aes(x=cover,y=Luglio2022,color=cover))+geom_bar(stat="identity",fill="gray")
+plot(Grafic2)
+
+
 
