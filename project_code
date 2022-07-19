@@ -42,19 +42,22 @@ plot(lst_2022,col=cla,main="Marzo 2022")
 
 #al valore 1 viene assegnato il valore minimo, mentre al 4 il valore massimo
 
-#creo una nuova palette di colori
+#creo una nuova palette di colori con due variabili
 clb<-colorRampPalette(c('light blue','red'))(100)
 
-
+#classifico le immagini del 2019 e del 2022 per poi confrontarle successivamente
+#utilizzo due classi che corrispondono rispettivamente al freddo e al caldo
+#unsuperClass è una classificazione non supervisionata dall'utente che viene fatta direttamente dal software
 c2019<-unsuperClass(lst_2019,nClasses=2)
 c2022<-unsuperClass(lst_2022,nClasses=2)
 
-pdf("lst1.pdf")
+#faccio un nuovo plottaggio delle immagini classificate
 par(mfrow=c(1,2))
 plot(c2019$map,col=clb,main="Luglio 2019")
 plot(c2022$map,col=clb,main="Luglio 2022")
 
-
+#osservo la frequenza delle 2 mappe per calcolare la percentuale delle zone fredde e delle zone calde
+#il simbolo "$" serve per unire, in questo caso la mappa alla  nostra immagine
 freq(c2019$map)
 #     value    count
 #[1,]     1  2102271
@@ -70,6 +73,7 @@ freq(c2022$map)
 #[3,]    NA 26506206
 Tot2022<-(1873837+521333)
 
+#faccio il calcolo delle percentuali
 percent2019<-freq(c2019$map)*100/Tot2019
 percent2019
 #            value     count
@@ -85,6 +89,7 @@ percent2022
 [3,]           NA 1096.12407
 
 
+#creo una tabella con i valori del 2019 e del 2022
 cover<-c("cold","heat")
 Marzo2019<-c(2102271,545070)
 Marzo2022<-c(1873837,521333)
