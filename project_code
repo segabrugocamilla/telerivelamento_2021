@@ -96,6 +96,7 @@ Marzo2022<-c(1873837,521333)
 output<-data.frame(cover,Marzo2019,Marzo2022)
 View(output)
 
+#per ottenere un grafico a barre delle percentuali uso la libreria ggplot2
 
 Grafic1<-ggplot(output,aes(x=cover,y=Marzo2019,color=cover))+geom_bar(stat="identity",fill="gray")
 plot(Grafic1)
@@ -103,7 +104,8 @@ plot(Grafic1)
 Grafic2<-ggplot(output,aes(x=cover,y=Marzo2022,color=cover))+geom_bar(stat="identity",fill="gray")
 plot(Grafic2)
 
-
+#la libreria gridextra serve per unire i due grafici in un'unica immagine
+#grid.arrange compone il multiframe
 grid.arrange(Grafic1,Grafic2, nrow=1)
 
 
