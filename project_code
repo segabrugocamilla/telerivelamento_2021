@@ -90,12 +90,115 @@ plot(Grafic1)
 Grafic2<-ggplot(output,aes(x=cover,y=Marzo2022,color=cover))+geom_bar(stat="identity",fill="gray")
 plot(Grafic2)
 
+
 grid.arrange(Grafic1,Grafic2, nrow=1)
 
-rlist<-list.files(pattern = ".nc")
+
+
+---------------------------------------------------------------------------------------
+
+rlist<-list.files(pattern=".nc")
  
-listafinale<-lapply(rlist, raster)
+listafinale<-lapply(rlist,raster)
 
 heet<-stack(listafinale)
-plot(heet, col= clA)
+plot(heet,col=cla)
 heet
+
+
+ext<- c(6,20,30,50)
+
+
+zoom(heet$LST.Error.Bar.1,ext)
+zoom(heet$LST.Error.Bar.2,ext)
+zoom(heet$LST.Error.Bar.3,ext)
+zoom(heet$LST.Error.Bar.4,ext)
+
+
+ITA18<- crop(heet$LST.Error.Bar.1,ext)
+ITA19<- crop(heet$LST.Error.Bar.2,ext)
+ITA20<- crop(heet$LST.Error.Bar.3,ext)
+ITA22<- crop(heet$LST.Error.Bar.4,ext)
+
+par(mfrow=c(2,2))
+plot(ITA19,col=cla,main="2019")
+plot(ITA20,col=cla,main="2020")
+plot(ITA21,col=cla,main="2021")
+plot(ITA22,col=cla,main="2022")
+
+
+ITA19M<-unsuperClass(ITA19,nClasses=2)
+ITA22M<-unsuperClass(ITA22,nClasses=2)
+
+clC<- colorRampPalette(c("orange","purple"))(100)
+
+par(mfrow=c(1,2))
+
+plot(ITA19M$map,col=clC, main="20-03-2019")
+plot(ITA22M$map,col=clC, main="20-03-2022")
+
+
+
+freq(ITA19M$map)
+#value count
+#[1,]     1 40083
+#[2,]     2 31641
+#[3,]    NA 68500
+ 
+
+freq(ITA22M$map)
+#     value count
+#[1,]     1 40389
+#[2,]     2 30472
+#[3,]    NA 69363
+
+TotITA19M<-(40083+31641)
+
+TotITA22M<-(40389+30472)
+
+percent2019 <- freq(ITA19M$map)*100/TotITA19M
+
+
+percent2019
+#           value    count
+#[1,] 0.001394233 55.88506
+#[2,] 0.002788467 44.11494
+#[3,]          NA 95.50499
+
+
+percent2022 <- freq(ITA22M$map)*100/TotITA22M
+
+percent2022
+#           value   count
+#[1,] 0.001411214 56.9975
+#[2,] 0.002822427 43.0025
+#[3,]          NA 97.8860
+
+
+
+cover<-c("cold","heet")
+Marzo2019<-c(40083,31641)
+Marzo2022<-c(40389,30472)
+output <- data.frame(cover,Marzo2019,Marzo2022)
+View(output)
+
+
+
+Grafic3 <- ggplot(output, aes(x=cover,y=Marzo2019, color=cover))+geom_bar(stat = "identity",fill="white")
+
+plot(Grafic3)
+
+Grafic4 <- ggplot(output,aes(x=cover,y=Marzo2022,color=cover))+geom_bar(stat = "identity",fill="white")
+
+plot(Grafic4)
+
+
+library(gridExtra)
+
+
+
+grid.arrange(Grafic3,Grafic4, nrow=1)
+
+
+
+
