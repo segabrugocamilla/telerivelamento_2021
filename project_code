@@ -16,19 +16,23 @@ library(gridExtra)
 #imposto la working directory, la cartella di destinazione dove sono presenti i dati di interesse precedentemente scaricati
 setwd("C:/lab/")
 
+#attraverso la funzione "raster" carico in R e rinomino le immagini
 lst_2019<-raster("c_gls_LST_201903200000_GLOBE_GEO_V1.2.1.nc")
 lst_2020<-raster("c_gls_LST_202003200000_GLOBE_GEO_V1.2.1.nc")
 lst_2021<-raster("c_gls_LST_202103200300_GLOBE_GEO_V1.2.1.nc")
 lst_2022<-raster("c_gls_LST_202203200100_GLOBE_GEO_V1.2.1.nc")
 
+#visualizzo le informazioni contennute nelle immagini
 lst_2019
 lst_2020
 lst_2021
 lst_2022
 
+#creo una palette di colori che mi permetta di vedere bene le variazioni di temperatura
 cla<- colorRampPalette(c('yellow', 'red','purple'))(100)
 
 
+#faccio un plottaggio delle immaggini e con la funzione PAR le dispongo in un quadrante 
 par(mfrow=c(2,2))
 
 plot(lst_2019,col=cla,main="Marzo 2019")
@@ -36,7 +40,9 @@ plot(lst_2020,col=cla,main="Marzo 2020")
 plot(lst_2021,col=cla,main="Marzo 2021")
 plot(lst_2022,col=cla,main="Marzo 2022")
 
+#al valore 1 viene assegnato il valore minimo, mentre al 4 il valore massimo
 
+#creo una nuova palette di colori
 clb<-colorRampPalette(c('light blue','red'))(100)
 
 
