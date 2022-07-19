@@ -1,17 +1,19 @@
 #project_code
 
-#install.packages("ncdf4")
-#install.packages("raster")
-#install.packages("RStoolbox")
+#install.packages("ncdf4") #serve per vedere i file .nc scaricati da Copernicus
+#install.packages("raster") #serve per caricare le immagini nel software, in alternativa si può usare brik per importare più immagini
+#install.packages("RStoolbox") #serve per classificare le immagini
 #install.packages("ggplot2")
 #install.packages("gridExtra")
 
+#con la funzione library vengono richiamati i pacchetti precedentemente installati per poterli usare
 library(raster)
 library(ncdf4)
 library(RStoolbox)
 library(ggplot2)
 library(gridExtra)
 
+#imposto la working directory, la cartella di destinazione dove sono presenti i dati di interesse precedentemente scaricati
 setwd("C:/lab/")
 
 lst_2019<-raster("c_gls_LST_201903200000_GLOBE_GEO_V1.2.1.nc")
