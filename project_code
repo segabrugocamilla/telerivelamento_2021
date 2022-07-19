@@ -92,4 +92,10 @@ plot(Grafic2)
 
 grid.arrange(Grafic1,Grafic2, nrow=1)
 
+rlist<-list.files(pattern = ".nc")
+ 
+listafinale<-lapply(rlist, raster)
 
+heet<-stack(listafinale)
+plot(heet, col= clA)
+heet
