@@ -1,9 +1,9 @@
-#project_code
+#R_project_code
 
 #install.packages("ncdf4") #serve per vedere i file .nc scaricati da Copernicus
 #install.packages("raster") #serve per caricare le immagini nel software, in alternativa si può usare brik per importare più immagini
 #install.packages("RStoolbox") #serve per classificare le immagini
-#install.packages("ggplot2")
+#install.packages("ggplot2") #serve per fare i grafici
 #install.packages("gridExtra")
 
 #con la funzione library vengono richiamati i pacchetti precedentemente installati per poterli usare
@@ -69,9 +69,9 @@ Tot2019<-(2102271+545070)
 freq(c2022$map)
 #     value    count
 #[1,]     1  1873837
-#[2,]     2   521333
+#[2,]     2   621333
 #[3,]    NA 26506206
-Tot2022<-(1873837+521333)
+Tot2022<-(1873837+621333)
 
 #faccio il calcolo delle percentuali
 percent2019<-freq(c2019$map)*100/Tot2019
@@ -92,7 +92,7 @@ percent2022
 #creo una tabella con i valori del 2019 e del 2022
 cover<-c("cold","heat")
 Marzo2019<-c(2102271,545070)
-Marzo2022<-c(1873837,521333)
+Marzo2022<-c(1873837,621333)
 output<-data.frame(cover,Marzo2019,Marzo2022)
 View(output)
 
@@ -112,48 +112,60 @@ grid.arrange(Grafic1,Grafic2, nrow=1)
 
 ---------------------------------------------------------------------------------------
 
+#faccio uno zoom sulla variazioni di temperatura sul suolo italiano nello stesso arco temporale
+
+#carico le immagini .nc tutte insieme creando una lista
 rlist<-list.files(pattern=".nc")
  
 listafinale<-lapply(rlist,raster)
 
+#rinomino la lista
 heet<-stack(listafinale)
+
+#faccio un plottaggio delle immagini con la palette di colori scelta all'inizio
 plot(heet,col=cla)
+#osservo le informazioni delle immagini
 heet
 
-
+#inserisco le coordinate che rappresentano la zona di interesse, in questo caso l'Italia
 ext<- c(6,20,30,50)
 
-
+#applico uno zoom dell'area per ogni immagine
 zoom(heet$LST.Error.Bar.1,ext)
 zoom(heet$LST.Error.Bar.2,ext)
 zoom(heet$LST.Error.Bar.3,ext)
 zoom(heet$LST.Error.Bar.4,ext)
 
 
+#vado a tagliare l'immagine zoommata creando una nuova immagine della zona di interesse
+#utilizzo la funzione "crop"
 ITA18<- crop(heet$LST.Error.Bar.1,ext)
 ITA19<- crop(heet$LST.Error.Bar.2,ext)
 ITA20<- crop(heet$LST.Error.Bar.3,ext)
 ITA22<- crop(heet$LST.Error.Bar.4,ext)
 
+#faccio un plottaggio delle immagini e le visualizzo tutte insieme in un quadrante
 par(mfrow=c(2,2))
 plot(ITA19,col=cla,main="2019")
 plot(ITA20,col=cla,main="2020")
 plot(ITA21,col=cla,main="2021")
 plot(ITA22,col=cla,main="2022")
 
-
+#classifico le immagini del 2019 e del 2022
+#utilizzo due classi, una per il freddo e una per il caldo
 ITA19M<-unsuperClass(ITA19,nClasses=2)
 ITA22M<-unsuperClass(ITA22,nClasses=2)
 
+#creo una nuova palette
 clC<- colorRampPalette(c("orange","purple"))(100)
 
+#faccio un plottaggio delle immagini e le visualizzo sulla stessa riga
 par(mfrow=c(1,2))
-
 plot(ITA19M$map,col=clC, main="20-03-2019")
 plot(ITA22M$map,col=clC, main="20-03-2022")
 
 
-
+#calcolo le frequenze
 freq(ITA19M$map)
 #value count
 #[1,]     1 40083
@@ -168,9 +180,9 @@ freq(ITA22M$map)
 #[3,]    NA 69363
 
 TotITA19M<-(40083+31641)
-
 TotITA22M<-(40389+30472)
 
+#calcolo le percentuali
 percent2019 <- freq(ITA19M$map)*100/TotITA19M
 
 
@@ -190,7 +202,7 @@ percent2022
 #[3,]          NA 97.8860
 
 
-
+#faccio una tabella con i valori
 cover<-c("cold","heet")
 Marzo2019<-c(40083,31641)
 Marzo2022<-c(40389,30472)
@@ -198,20 +210,14 @@ output <- data.frame(cover,Marzo2019,Marzo2022)
 View(output)
 
 
-
+#analizzo i dati graficamente
 Grafic3 <- ggplot(output, aes(x=cover,y=Marzo2019, color=cover))+geom_bar(stat = "identity",fill="white")
-
 plot(Grafic3)
 
 Grafic4 <- ggplot(output,aes(x=cover,y=Marzo2022,color=cover))+geom_bar(stat = "identity",fill="white")
-
 plot(Grafic4)
 
-
-library(gridExtra)
-
-
-
+#visualizzo i due grafici insieme sulla stessa linea
 grid.arrange(Grafic3,Grafic4, nrow=1)
 
 
