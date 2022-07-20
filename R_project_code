@@ -4,7 +4,7 @@
 #install.packages("raster") #serve per caricare le immagini nel software, in alternativa si può usare brik per importare più immagini
 #install.packages("RStoolbox") #serve per classificare le immagini
 #install.packages("ggplot2") #serve per fare i grafici
-#install.packages("gridExtra")
+#install.packages("gridExtra") #serve per visualizzare i graifci insieme
 
 #con la funzione library vengono richiamati i pacchetti precedentemente installati per poterli usare
 library(raster)
