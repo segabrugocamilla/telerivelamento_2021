@@ -176,11 +176,11 @@ freq(ITA19M$map)
 freq(ITA22M$map)
 #     value count
 #[1,]     1 40389
-#[2,]     2 30472
+#[2,]     2 38472
 #[3,]    NA 69363
 
 TotITA19M<-(40083+31641)
-TotITA22M<-(40389+30472)
+TotITA22M<-(40389+38472)
 
 #calcolo le percentuali
 percent2019 <- freq(ITA19M$map)*100/TotITA19M
@@ -205,7 +205,7 @@ percent2022
 #faccio una tabella con i valori
 cover<-c("cold","heet")
 Marzo2019<-c(40083,31641)
-Marzo2022<-c(40389,30472)
+Marzo2022<-c(40389,38472)
 output <- data.frame(cover,Marzo2019,Marzo2022)
 View(output)
 
