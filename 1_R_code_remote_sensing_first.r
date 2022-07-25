@@ -1,19 +1,26 @@
 # il mio primo codice in R per il corso di telerilevamento
-# per prima cosa carichiamo e richiamiamo le librerie
-# install.packages("raster")
-library(raster)
-library(sp) # per la gestione dei dati all'internod el software
-# install.packages("RStoolbox")
-library(RStoolbox)
 
+#install.packages("sp") #per la gestione dei dati all'interno del software
+#install.packages("raster")
+# install.packages("RStoolbox")
+
+
+# per prima cosa carichiamo e richiamiamo le librerie
+library(raster)
+library(sp) 
+library(RStoolbox)
 
 setwd("C:/lab/") # settiamo la set working director
 
+#importiamo un file precedentemente scaricato attraverso la funzione brick e lo rinominimo
 p224r63_2011<-brick("p224r63_2011_masked.grd") # brick è la funzione per creare un raster multistrato: importa un intero set di dati (nel nostro caso bande dai satelliti) creando un RasterBrick. Asocciamo il nome "p224r63_2011"
+
 # p224r63_2011 : inserendo il nome su R visualizziamo le informazioni contenute nell'immagine
+p224r63_2011
 
 plot(p224r63_2011) # utilizziamo la funzione plot per visualizzare tutte le bande con i valori di riflettanza
 
+#Avremo come risultato un plot con questi colori (BANDE LANDSAT):
 # Bande Landsat
 # B1: blu
 # B2: verde
