@@ -12,11 +12,10 @@
 # 4. R code knitr
 # 5. R code classification
 # 6. R code multivariate analysis
-# 7. R code ggplot2
-# 8. R code vegetation indices
-# 9. R code land cover
-# 10. R code variability
-# 11. R code spectral signatures
+# 7. R code vegetation indices
+# 8. R code land cover
+# 9. R code variability
+# 10. R code spectral signatures
 
 
 #--------------------------------------------
@@ -454,33 +453,11 @@ plotRGB(p224r63_2011_pca$map, r=1, g=2, b=3, stretch="lin") # facciamo un plot R
 str(p224r63_2011_pca) # per avere informazioni aggiuntive sul file
 
 
-#--------------------------------------------
-
-
-# 7. R code ggplot2
-
-library(raster)
-library(RStoolbox)
-library(ggplot2)
-library(gridExtra)
-
-setwd("~/lab/")
-
-p224r63 <- brick("p224r63_2011_masked.grd")
-
-ggRGB(p224r63,3,2,1, stretch="lin")
-ggRGB(p224r63,4,3,2, stretch="lin")
-
-p1 <- ggRGB(p224r63,3,2,1, stretch="lin")
-p2 <- ggRGB(p224r63,4,3,2, stretch="lin")
-
-grid.arrange(p1, p2, nrow = 2) # this needs gridExtra
-
 
 #--------------------------------------------
 
 
-# 8. R code vegetation indices
+# 7. R code vegetation indices
 
 # R_code_vegetation_indices.r
 
@@ -581,7 +558,7 @@ plot(difdvi, col=cld)
 #--------------------------------------------
 
 
-# 9. R code land cover
+# 8. R code land cover
 
 # abbiamo riutilizzato gli algoritmi di classificazione delle immagini e abbiamo fatto un'analisi multi temporale della variazione della copertura del suolo. 
 
@@ -699,7 +676,7 @@ grid.arrange(p1, p2, nrow=1)
 #--------------------------------------------
 
 
-# 10. R code variability
+# 9. R code variability
 
 # R_code_variability.r
 # Analizziamo pattern spaziali tramite l’uso di indici del paesaggio nell’area del ghiacciao del Similaun
@@ -811,7 +788,7 @@ grid.arrange(p1, p2, p3, nrow=1)
 #--------------------------------------------
 
 
-# 11. R code spectral signatures
+# 10. R code spectral signatures
 
 # R_code_spectral_signatures.r
 
