@@ -3,8 +3,9 @@
 # Dati e codici presi da un progetto di Emanuela Cosma
 
 # install.packages ("raster")
-library(raster)
 # install.packages("rasterVis")
+
+library(raster)
 library(rasterVis) # metodi di visualizzazione per i raster
 
 setwd("C:/lab/greenland")
