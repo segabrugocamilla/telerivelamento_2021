@@ -53,8 +53,8 @@ c2022<-unsuperClass(lst_2022,nClasses=2)
 
 #faccio un nuovo plottaggio delle immagini classificate
 par(mfrow=c(1,2))
-plot(c2019$map,col=clb,main="Luglio 2019")
-plot(c2022$map,col=clb,main="Luglio 2022")
+plot(c2019$map,col=clb,main="Marzo 2019")
+plot(c2022$map,col=clb,main="Marzo 2022")
 
 #osservo la frequenza delle 2 mappe per calcolare la percentuale delle zone fredde e delle zone calde
 #il simbolo "$" serve per unire, in questo caso la mappa alla  nostra immagine
