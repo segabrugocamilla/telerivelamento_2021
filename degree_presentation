@@ -39,39 +39,50 @@
 \section{Introduzione}
 
 \begin{frame}
-\frametitle{Tassonomia e filogenesi}
-\begin{itemize}
-    \item 
-    \Large{prima definizione}
-    \item 
-    \Large{dseconda}
-    \item
-    \Large{albero.}
-\end{itemize}
+\frametitle{Introduzione}
+
+
+
+    
+    \tiny{\textbf{Tassonomia:}Lorenz Oken 1816, Reginald Innes Pocock 1939 }
+
+     
+    \tiny{\textbf{Filogenesi:}gen. \emph{Panthera} (\emph{P. tigris, P. leo, P. onca, P. pardus e P. uncia} si è discostato da sottofamiglia Felidae tra 6 e 10 milioni di anni fa. divergenza tra il leopardo delle nevi e la tigre sia avvenuta 2,70–3,70 Ma }
+  
+    \tiny{\textbf{Descrizione:} testa-corpo intorno ai 1-1.30 m, la coda di 0,8-1.1 m e peso tra i 20 e 50 kg}
+   
+    \tiny{\textbf{Adattamenti:}: - pelliccia - coda }
+        
+    \tiny{\textbf{Distribuzione:} Russia, Mongolia, Kazakistan, Cina, Nepal, Bhutan, India, Pakistan, Kirghizistan, Afghanistan, Tagikistan e Uzbekistan  }
+       
+    \tiny{\textbf{Habitat:} dalle aree montuose dell’Himalaya e dell’altopiano tibetano (compresi tra i 3.000 e oltre i 5.000 m s.l.m.), agli affioramenti desertici del Gobi dove può spingersi in basso, sino ai 600 m s.l.m. }
+     
+    \tiny{\textbf{Dieta:} il bharal o pecora blu (Pseudois nayaur), stambecco siberiano (Capra sibirica),marmotte (Marmota spp), pika (Ochotona spp.), lepri (Leupus spp.), piccoli roditori e uccelli }  
+    
+    \tiny{\textbf{Comportamento:} Gli adulti sono prevalentemente solitari, per marcare il territorio i comportamenti includono: sprayng, strofinare guancie e testa e raspamento}      
+    
+
+
+
+\begin{figure}
+\centering 
+  \includegraphics[width=0.5\textwidth]{img2.jpg}
+
+
+    
+\end{figure}
+
+
+
+
+
  
 \end{frame}
 
-\begin{frame}{Descrizione, distribuzione e habita}
-    \begin{itemize}
-    \item 
-    \Large{metto la descrizione}
-
-\end{itemize}
-\end{frame}
 
 
 
 
-
-
-
-\begin{frame}{Dieta e Comportamento}
-    \begin{itemize}
-    \item 
-    \Large{immagine}
-
-\end{itemize}
-\end{frame}
 
 
 
@@ -97,7 +108,12 @@
 \begin{frame}{Scopo dello studio}
     \begin{itemize}
     \item 
-    \Large{immagine}
+    \large{”International Snow Leopard Ecosystem Conservation Forum” 2017}
+     \item 
+    \large{piano per eseguire una stima della popolazione globale del leopardo delle nevi: piano per eseguire una stima della popolazione globale del leopardo delle nevi: “Population Assessment of the World’s Snow Leopards” (\textbf{PAWS})}
+    \item 
+    \large{stimare la densità della popolazione del leopardo delle nevi nel Great Gobi A Strictly Protected Area (GGA) attraverso l'utilizzo di fototrappole e conducendo un'analisi rigorosa consistente nello Spatial Explicit, Capture-Recapture (SECR).}
+
 
 \end{itemize}
 \end{frame}
@@ -106,7 +122,7 @@
 \section{Metodi}
 
 \begin{frame}{Area di studio}
-    
+    \centering\includegraphics[width=0.8\textwidth]{Inquadramento.png}
 \end{frame}
 
 
