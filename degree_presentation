@@ -1,0 +1,146 @@
+\documentclass{beamer}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+
+\usetheme{Berlin}
+\usecolortheme{beaver}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\title[{STIMA DELLA DENSITA’ DELLA POPOLAZIONE DI LEOPARDO DELLE NEVI (\emph{Panthera uncia})} \insertframenumber/\inserttotalframenumber]{{ STIMA DELLA DENSITA’ DELLA POPOLAZIONE DI LEOPARDO DELLE NEVI (\emph{Panthera uncia}) NELLA MONTAGNA DI TSAAGAN BOGD, MONGOLIA}}
+
+\author{Camilla Segabrugo}
+\date{7 Dicembre 2022}
+
+\institute{Alma Mater Studiorum- Università di Bologna\\
+\bigskip %aumento lo spazio se no smallskip
+
+\includegraphics[width=0.13\textwidth]{logo.png}
+
+
+
+}
+
+
+
+\begin{document}
+
+
+\maketitle
+
+\AtBeginSection[] %inizia ogni slide così
+{
+\begin{frame}{Outline}
+\tableofcontents[currentsection,currentsubsection,currentsubsection]
+\end{frame}
+}
+
+\section{Introduzione}
+
+\begin{frame}
+\frametitle{Tassonomia e filogenesi}
+\begin{itemize}
+    \item 
+    \Large{prima definizione}
+    \item 
+    \Large{dseconda}
+    \item
+    \Large{albero.}
+\end{itemize}
+ 
+\end{frame}
+
+\begin{frame}{Descrizione, distribuzione e habita}
+    \begin{itemize}
+    \item 
+    \Large{metto la descrizione}
+
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Dieta e Comportamento}
+    \begin{itemize}
+    \item 
+    \Large{immagine}
+
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Minacce}
+    \begin{itemize}
+    \item
+    \Large{Bracconaggio}
+    \item
+    \Large{Uccisione per vendetta}
+    \item
+    \Large{Cambiamenti climatici}
+    \item
+    \Large{Estrazione mineraria e sviluppo di infrastrutture}
+    \item
+    \Large{Inncremento dei capi di bestiame}
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Scopo dello studio}
+    \begin{itemize}
+    \item 
+    \Large{immagine}
+
+\end{itemize}
+\end{frame}
+
+
+\section{Metodi}
+
+\begin{frame}{Area di studio}
+    
+\end{frame}
+
+
+
+\begin{frame}{Il fototrappolaggio}
+
+    
+\end{frame}
+
+
+\begin{frame}{Raccolta dati}
+    
+\end{frame}
+
+
+\begin{frame}{Data Analysis}
+
+    
+\end{frame}
+
+
+
+\section{Risultati}
+
+
+
+\section{Discussione}
+
+
+
+\section{Conclusioni}
+
+
+
+
+
+\end{document}
