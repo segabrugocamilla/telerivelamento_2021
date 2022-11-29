@@ -1,9 +1,3 @@
-\documentclass{beamer}
-
-\usepackage{listings}
-\usepackage{color}
-\usepackage{graphicx}
-
 \usetheme{Berlin}
 \usecolortheme{beaver}
 
@@ -14,13 +8,16 @@
 \date{7 Dicembre 2022}
 
 \institute{Alma Mater Studiorum- Università di Bologna\\
-\bigskip %aumento lo spazio se no smallskip
+\smallskip %aumento lo spazio se no smallskip
 
-\includegraphics[width=0.13\textwidth]{logo.png}
-
-
-
+\includegraphics[width=0.15\textwidth]{logovett.png}
 }
+
+
+
+
+
+
 
 
 
@@ -164,7 +161,8 @@
 
 \end{itemize}
 \bigskip
-\centering\includegraphics[width=1\textwidth]{immagini_leo.jpg}
+\centering
+\includegraphics[width=1\textwidth]{immagini_leo.jpg}
     
 \end{frame}
 
@@ -250,3 +248,4 @@
 
 
 \end{document}
+
