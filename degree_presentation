@@ -1,3 +1,9 @@
+\documentclass{beamer}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+
 \usetheme{Berlin}
 \usecolortheme{beaver}
 
@@ -10,7 +16,7 @@
 \institute{Alma Mater Studiorum- Università di Bologna\\
 \smallskip %aumento lo spazio se no smallskip
 
-\includegraphics[width=0.15\textwidth]{logovett.png}
+\includegraphics[width=0.17\textwidth]{logovett.png}
 }
 
 
@@ -44,7 +50,7 @@
     \tiny{\textbf{Tassonomia:}Lorenz Oken 1816, Reginald Innes Pocock 1939 }
 
      
-    \tiny{\textbf{Filogenesi:}gen. \emph{Panthera} (\emph{P. tigris, P. leo, P. onca, P. pardus e P. uncia} si è discostato da sottofamiglia Felidae tra 6 e 10 milioni di anni fa. divergenza tra il leopardo delle nevi e la tigre sia avvenuta 2,70–3,70 Ma }
+    \tiny{\textbf{Filogenesi:}gen. \emph{Panthera} (\emph{P. tigris, P. leo, P. onca, P. pardus e P. uncia}) si è discostato da sottofamiglia Felidae tra 6 e 10 milioni di anni fa. divergenza tra il leopardo delle nevi e la tigre sia avvenuta 2,70–3,70 Ma }
   
     \tiny{\textbf{Descrizione:} testa-corpo intorno ai 1-1.30 m, la coda di 0,8-1.1 m e peso tra i 20 e 50 kg}
    
@@ -54,16 +60,16 @@
        
     \tiny{\textbf{Habitat:} dalle aree montuose dell’Himalaya e dell’altopiano tibetano (compresi tra i 3.000 e oltre i 5.000 m s.l.m.), agli affioramenti desertici del Gobi dove può spingersi in basso, sino ai 600 m s.l.m. }
      
-    \tiny{\textbf{Dieta:} il bharal o pecora blu (Pseudois nayaur), stambecco siberiano (Capra sibirica),marmotte (Marmota spp), pika (Ochotona spp.), lepri (Leupus spp.), piccoli roditori e uccelli }  
+    \tiny{\textbf{Dieta:} il bharal o pecora blu (\emph{ Pseudois nayaur}), stambecco siberiano (\emph{Capra sibirica}),marmotte (\emph{Marmota spp}), pika (\emph{Ochotona spp.}), lepri (\emph{Leupus spp.a}), piccoli roditori e uccelli }  
     
-    \tiny{\textbf{Comportamento:} Gli adulti sono prevalentemente solitari, per marcare il territorio i comportamenti includono: sprayng, strofinare guancie e testa e raspamento}      
+    \tiny{\textbf{Comportamento:} Gli adulti sono prevalentemente solitari, per marcare il territorio i comportamenti includono: sprayng, strofinare guancie e testa e raspare}      
     
 
 
 
 \begin{figure}
 \centering 
-  \includegraphics[width=0.5\textwidth]{img2.jpg}
+  \includegraphics[width=0.7\textwidth]{img2.jpg}
 
 
     
@@ -87,17 +93,18 @@
 
 \begin{frame}{Minacce}
     \begin{itemize}
+    \Large{
     \item
-    \Large{Bracconaggio}
+    {Bracconaggio}
     \item
-    \Large{Uccisione per vendetta}
+    {Uccisione per vendetta}
     \item
-    \Large{Cambiamenti climatici}
+    {Cambiamenti climatici}
     \item
-    \Large{Estrazione mineraria e sviluppo di infrastrutture}
+    {Estrazione mineraria e sviluppo di infrastrutture}
     \item
-    \Large{Inncremento dei capi di bestiame}
-
+    {Inncremento dei capi di bestiame}
+}
 \end{itemize}
 \end{frame}
 
@@ -107,7 +114,7 @@
     \item 
     \large{”International Snow Leopard Ecosystem Conservation Forum” 2017}
      \item 
-    \large{piano per eseguire una stima della popolazione globale del leopardo delle nevi: piano per eseguire una stima della popolazione globale del leopardo delle nevi: “Population Assessment of the World’s Snow Leopards” (\textbf{PAWS})}
+    \large{piano per eseguire una stima della popolazione globale del leopardo delle nevi: “Population Assessment of the World’s Snow Leopards” (\textbf{PAWS})}
     \item 
     \large{stimare la densità della popolazione del leopardo delle nevi nel Great Gobi A Strictly Protected Area (GGA) attraverso l'utilizzo di fototrappole e conducendo un'analisi rigorosa consistente nello Spatial Explicit, Capture-Recapture (SECR).}
 
@@ -132,6 +139,7 @@
 
 \centering
  \begin{itemize}
+ \scriptsize{
     \item 
     \scriptsize{Periodo di campionamento:dicembre 2018-febbraio2019}
      \item 
@@ -140,7 +148,7 @@
     \scriptsize{Ampiezza are di studio: superficie di 585,70 km2}
         \item 
     \scriptsize{Posizionamento: passaggi stretti e creste, altitudini comprese tra 1.530 e 2.099 metri}
-
+}
 
 \end{itemize}
 
@@ -151,13 +159,14 @@
 
 \begin{frame}{Data Analysis}
 \begin{itemize}
+\scriptsize{
     \item 
     \scriptsize{Identificazione degli individui}
      \item 
-    \scriptsize{modelling overview: abbiamo stimato la densità del leopardo delle nevi con il metodo dello Spatial Explicit Capture-Recapture (SECR)}
+    \scriptsize{Modelling overview: abbiamo stimato la densità del leopardo delle nevi con il metodo dello Spatial Explicit Capture-Recapture (SECR)}
     \item 
     \scriptsize{Abbiamo selezionato un totale di sette modelli  legate alla probabilità di rilevamento. I modelli migliori sono stati selezionati in base al valore più basso dell’AIC (Akaike Information Criterion). Nel caso la differenza del valore dell’AIC fosse stata $Delta$.≤ 2 avremmo usato la media dei modelli entro $Delta$.=2}
-     
+    }
 
 \end{itemize}
 \bigskip
@@ -174,8 +183,9 @@
 \tiny{Abbiamo registrato 25 rilevamenti fotografici in 3661 giorni-trappola (somma totale dei giorni in cui le fototrappole hanno lavorato nei 47 siti}
 
 \bigskip
+
     \centering
-    
+    \bigskip
 \includegraphics[width=1\textwidth]{grafici.jpg}
     
 \end{frame}
@@ -201,6 +211,7 @@
 
 \centering
 \begin{itemize}
+\centering
 \tiny{
     \item  4 individui di passaggio
     \item 4 ipotesi individui stabili
@@ -215,7 +226,7 @@
 
 \bigskip
  \centering
-\includegraphics[width=0.5\textwidth]{graficde_page-0001.jpg}   
+\includegraphics[width=0.6\textwidth]{graficde_page-0001.jpg}   
 \end{frame}
 
 
@@ -248,4 +259,3 @@
 
 
 \end{document}
-
