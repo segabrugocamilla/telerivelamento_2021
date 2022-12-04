@@ -11,13 +11,22 @@
 \title[{STIMA DELLA DENSITA’ DELLA POPOLAZIONE DI LEOPARDO DELLE NEVI (\emph{Panthera uncia})} \insertframenumber/\inserttotalframenumber]{{ STIMA DELLA DENSITA’ DELLA POPOLAZIONE DI LEOPARDO DELLE NEVI (\emph{Panthera uncia}) NELLA MONTAGNA DI TSAAGAN BOGD, MONGOLIA}}
 
 \author{Camilla Segabrugo}
-\date{7 Dicembre 2022}
+
+\date{7 Dicembre 2022 \space
+
+\scriptsize{Relatore: Antonio Bonfitto - 
+            Correlatori: Claudio Augugliaro \& Maila Cicero}}
 
 \institute{Alma Mater Studiorum- Università di Bologna\\
 \smallskip %aumento lo spazio se no smallskip
 
 \includegraphics[width=0.17\textwidth]{logovett.png}
 }
+
+
+
+
+
 
 
 
@@ -34,7 +43,7 @@
 \end{frame}
 }
 
-\section{Introduzione}
+
 
 \begin{frame}
 \frametitle{Introduzione}
@@ -90,15 +99,15 @@
     \begin{itemize}
     \Large{
     \item
-    {Bracconaggio}
+    {Bracconaggio \scriptsize{(CITES Appendice I, 1975)}}
     \item
     {Uccisione per vendetta}
+    \item
+    {Inncremento dei capi di bestiame}
     \item
     {Cambiamenti climatici}
     \item
     {Estrazione mineraria e sviluppo di infrastrutture}
-    \item
-    {Inncremento dei capi di bestiame}
 }
 \end{itemize}
 \end{frame}
@@ -118,7 +127,7 @@
 \end{frame}
 
 
-\section{Metodi}
+
 
 \begin{frame}{Area di studio}
     \centering\includegraphics[width=0.8\textwidth]{Inquadramento.png}
@@ -160,7 +169,7 @@
      \item 
     \scriptsize{Modelling overview: abbiamo stimato la densità del leopardo delle nevi con il metodo dello Spatial Explicit Capture-Recapture (SECR)}
     \item 
-    \scriptsize{Abbiamo selezionato un totale di sette modelli  legate alla probabilità di rilevamento. I modelli migliori sono stati selezionati in base al valore più basso dell’AIC (Akaike Information Criterion). Nel caso la differenza del valore dell’AIC fosse stata $Delta$.≤ 2 avremmo usato la media dei modelli entro $Delta$.=2}
+    \scriptsize{Abbiamo selezionato un totale di sette modelli  legate alla probabilità di rilevamento. I modelli migliori sono stati selezionati in base al valore più basso dell’AIC (Akaike Information Criterion). Nel caso la differenza del valore dell’AIC fosse stata $Delta$$\leq$ 2 avremmo usato la media dei modelli entro $Delta$.=2}
     }
 
 \end{itemize}
@@ -172,7 +181,7 @@
 
 
 
-\section{Risultati}
+
 \begin{frame}{Risultati}
 
 \tiny{Abbiamo registrato 25 rilevamenti fotografici in 3661 giorni-trappola (somma totale dei giorni in cui le fototrappole hanno lavorato nei 47 siti}
@@ -186,7 +195,7 @@
 \end{frame}
 
 \begin{frame}{Risultati}
-\tiny Il modello nullo (senza covariate) è il modello nel quale la probabilità di rilevamento è dipendente dal sito, hanno avuto un peso cumulativo di circa 9, gli altri modelli non avevano alcuna rilevanza. Il $Delta$≤2 ci ha indotti a fare una media dei modelli (tenendo conto del peso di ciascun modello) al fine di ottenere la stima della densità.
+\tiny Il modello nullo (senza covariate) è il modello nel quale la probabilità di rilevamento è dipendente dal sito, hanno avuto un peso cumulativo di circa 9, gli altri modelli non avevano alcuna rilevanza. Il $Delta$ $\leq$ 2 ci ha indotti a fare una media dei modelli (tenendo conto del peso di ciascun modello) al fine di ottenere la stima della densità.
 
 \bigskip
 \centering
@@ -194,12 +203,12 @@
 
 \bigskip
 
-   \footnotesize{La densità stimata di leopardi delle nevi su un’area di 4925 km2 è risultata essere di 11,6 leopardi delle nevi (9.4-26.6), che risulta in una densità di 0,23 su un’area di 100 km2.}
+   \footnotesize{La densità stimata di leopardi delle nevi su un’area di 4925 km2 è risultata essere di 11,6 leopardi delle nevi, che risulta in una densità di 0,23 su un’area di 100 km2.}
 \end{frame}
 
 
 
-\section{Discussione}
+
 \begin{frame}{Discussione}
 \centering
 \tiny I dati raccolti confermano la presenza fissa di una popolazione di leopardi delle nevi nella zona
@@ -226,7 +235,7 @@
 
 
 
-\section{Conclusioni}
+
 
 \begin{frame}{Conclusioni}
 
