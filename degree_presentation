@@ -51,22 +51,22 @@
 
 
     
-    \tiny{\textbf{Tassonomia:}Lorenz Oken 1816, Reginald Innes Pocock 1939 }
+    \tiny{\textbf{Tassonomia:}Lorenz Oken 1816, Reginald Innes Pocock 1939.}
 
      
-    \tiny{\textbf{Filogenesi:}gen. \emph{Panthera} (\emph{P. tigris, P. leo, P. onca, P. pardus e P. uncia}) si è discostato da sottofamiglia Felidae tra 6 e 10 milioni di anni fa. divergenza tra il leopardo delle nevi e la tigre sia avvenuta 2,70–3,70 Ma }
+    \tiny{\textbf{Filogenesi:}gen. \emph{Panthera} (\emph{P. tigris, P. leo, P. onca, P. pardus e P. uncia}) si è discostato da sottofamiglia Felidae tra 6 e 10 milioni di anni fa. divergenza tra il leopardo delle nevi e la tigre sia avvenuta 2,70–3,70 Ma. }
   
-    \tiny{\textbf{Descrizione:} testa-corpo intorno ai 1-1.30 m, la coda di 0,8-1.1 m e peso tra i 20 e 50 kg}
+    \tiny{\textbf{Descrizione:} testa-corpo intorno ai 1-1.30 m, la coda di 0,8-1.1 m e peso tra i 20 e 50 kg.}
    
     \tiny{\textbf{Adattamenti:}: - pelliccia - coda }
         
-    \tiny{\textbf{Distribuzione:} Russia, Mongolia, Kazakistan, Cina, Nepal, Bhutan, India, Pakistan, Kirghizistan, Afghanistan, Tagikistan e Uzbekistan  }
+    \tiny{\textbf{Distribuzione:} Russia, Mongolia, Kazakistan, Cina, Nepal, Bhutan, India, Pakistan, Kirghizistan, Afghanistan, Tagikistan e Uzbekistan.  }
        
     \tiny{\textbf{Habitat:} dalle aree montuose dell’Himalaya e dell’altopiano tibetano (compresi tra i 3.000 e oltre i 5.000 m s.l.m.), agli affioramenti desertici del Gobi dove può spingersi in basso, sino ai 600 m s.l.m. }
      
-    \tiny{\textbf{Dieta:} il bharal o pecora blu (\emph{ Pseudois nayaur}), stambecco siberiano (\emph{Capra sibirica}),marmotte (\emph{Marmota spp}), pika (\emph{Ochotona spp.}), lepri (\emph{Leupus spp.a}), piccoli roditori e uccelli }  
+    \tiny{\textbf{Dieta:} il bharal o pecora blu (\emph{ Pseudois nayaur}), stambecco siberiano (\emph{Capra sibirica}),marmotte (\emph{Marmota spp}), pika (\emph{Ochotona spp.}), lepri (\emph{Leupus spp.a}), piccoli roditori e uccelli. Bestiame quando le prede selvatiche scarseggiano.}  
     
-    \tiny{\textbf{Comportamento:} Gli adulti sono prevalentemente solitari, per marcare il territorio i comportamenti includono: sprayng, strofinare guancie e testa e raspare}      
+    \tiny{\textbf{Comportamento:} Gli adulti sono prevalentemente solitari, per marcare il territorio i comportamenti includono: sprayng, strofinare guancie e testa e raspare.}      
     
 
 
@@ -103,7 +103,7 @@
     \item
     {Uccisione per vendetta}
     \item
-    {Inncremento dei capi di bestiame}
+    {Incremento dei capi di bestiame}
     \item
     {Cambiamenti climatici}
     \item
@@ -118,7 +118,7 @@
     \item 
     \large{”International Snow Leopard Ecosystem Conservation Forum” 2017}
      \item 
-    \large{piano per eseguire una stima della popolazione globale del leopardo delle nevi: “Population Assessment of the World’s Snow Leopards” (\textbf{PAWS})}
+    \large{piano per eseguire una stima rigorosa della popolazione globale del leopardo delle nevi: “Population Assessment of the World’s Snow Leopards” (\textbf{PAWS})}
     \item 
     \large{stimare la densità della popolazione del leopardo delle nevi nel Great Gobi A Strictly Protected Area (GGA) attraverso l'utilizzo di fototrappole e conducendo un'analisi rigorosa consistente nello Spatial Explicit, Capture-Recapture (SECR).}
 
@@ -167,9 +167,9 @@
     \item 
     \scriptsize{Identificazione degli individui}
      \item 
-    \scriptsize{Modelling overview: abbiamo stimato la densità del leopardo delle nevi con il metodo dello Spatial Explicit Capture-Recapture (SECR)}
+    \scriptsize{Modelling overview: abbiamo stimato la densità del leopardo delle nevi con il metodo dello Spatial Explicit Capture-Recapture (SECR). SECR maximum likelihood }
     \item 
-    \scriptsize{Abbiamo selezionato un totale di sette modelli  legate alla probabilità di rilevamento. I modelli migliori sono stati selezionati in base al valore più basso dell’AIC (Akaike Information Criterion). Nel caso la differenza del valore dell’AIC fosse stata $Delta$$\leq$ 2 avremmo usato la media dei modelli entro $Delta$.=2}
+    \scriptsize{Abbiamo selezionato un totale di sette modelli  legati alla probabilità di rilevamento. I modelli migliori sono stati selezionati in base al valore più basso dell’AIC (Akaike Information Criterion). Nel caso la differenza del valore dell’AIC fosse stata $Delta$$\leq$ 2 avremmo usato la media dei modelli entro $Delta$.=2}
     }
 
 \end{itemize}
@@ -184,7 +184,7 @@
 
 \begin{frame}{Risultati}
 
-\tiny{Abbiamo registrato 25 rilevamenti fotografici in 3661 giorni-trappola (somma totale dei giorni in cui le fototrappole hanno lavorato nei 47 siti}
+\tiny{Abbiamo registrato 25 rilevamenti fotografici in 3661 giorni-trappola (somma totale dei giorni in cui le fototrappole hanno lavorato nei 47 siti). Riconoscendo 9 individui}
 
 \bigskip
 
@@ -195,7 +195,7 @@
 \end{frame}
 
 \begin{frame}{Risultati}
-\tiny Il modello nullo (senza covariate) è il modello nel quale la probabilità di rilevamento è dipendente dal sito, hanno avuto un peso cumulativo di circa 9, gli altri modelli non avevano alcuna rilevanza. Il $Delta$ $\leq$ 2 ci ha indotti a fare una media dei modelli (tenendo conto del peso di ciascun modello) al fine di ottenere la stima della densità.
+\tiny Il modello nullo (senza covariate) e il modello nel quale la probabilità di rilevamento è dipendente dal passaggio precedente, hanno avuto il peso cumulativo maggiore, gli altri modelli non avevano alcuna rilevanza. Il $Delta$ $\leq$ 2 ci ha indotti a fare una media dei modelli (tenendo conto del peso di ciascun modello) al fine di ottenere la stima della densità.
 
 \bigskip
 \centering
@@ -211,6 +211,7 @@
 
 \begin{frame}{Discussione}
 \centering
+\tiny{Primo studio con campionamento sistematico in quest'area, prima stima di densità del leopardo delle nevi in una zona senza presenza umana} 
 \tiny I dati raccolti confermano la presenza fissa di una popolazione di leopardi delle nevi nella zona
 
 \centering
@@ -263,3 +264,4 @@
 
 
 \end{document}
+
